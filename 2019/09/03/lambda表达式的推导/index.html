@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>test | Learning is Life</title>
+  <title>JAVA-&gt;lambda表达式的推导 | Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="java，后端，算法，程序猿">
+  <meta name="description" content="lambda表达式">
+<meta name="keywords" content="java，后端，算法，程序猿">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://yoursite.com/2019/08/26/test/index.html">
+<meta property="og:title" content="JAVA-&gt;lambda表达式的推导">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/lambda表达式的推导/index.html">
 <meta property="og:site_name" content="Learning is Life">
+<meta property="og:description" content="lambda表达式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-26T10:34:42.590Z">
+<meta property="og:updated_time" content="2019-09-03T15:57:56.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
+<meta name="twitter:title" content="JAVA-&gt;lambda表达式的推导">
+<meta name="twitter:description" content="lambda表达式">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -150,27 +153,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-test" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-lambda表达式的推导" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      test
+      JAVA-&gt;lambda表达式的推导
     </h1>
   
 
         
-        <a href="/2019/08/26/test/" class="archive-article-date">
-  	<time datetime="2019-08-26T10:34:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
+        <a href="/2019/09/03/lambda表达式的推导/" class="archive-article-date">
+  	<time datetime="2019-09-03T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><a id="more"></a>
+<ul>
+<li>简化（用一次的）线程</li>
+<li>避免<strong>匿名内部类定义</strong>过多</li>
+<li>外部类不使用内部类不编译 </li>
+</ul>
+<p>案例推导<br><strong>1. 静态内部类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>main</code>方法中实现<code>new Thread(new Test()).start();</code></p>
+<p><strong>2.方法内部类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test()).start();</span><br><span class="line">		<span class="comment">//方法内部类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test2()).start();</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.匿名内部类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.lambda表达式</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>删除了<code>new Runnable()接口</code>和<code>run（）方法</code>自动推导<br>一定要有<strong>类型</strong></p>
+
       
 
       
@@ -228,7 +251,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/26/test/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/lambda表达式的推导/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -243,8 +266,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/08/26/text/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">text</div>
+    <a href="/2019/09/03/java匿名内部类与lambda表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA内部类</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -271,7 +294,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">lambda表达式</span></a></li></ol>
                     </div>
                 </span>
             </div>
