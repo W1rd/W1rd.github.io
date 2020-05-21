@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JAVA内部类 | Learning is Life</title>
+  <title>Tag: Javaweb | Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="内部类">
-<meta name="keywords" content="java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JAVA内部类">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/java匿名内部类与lambda表达式/index.html">
+  <meta name="keywords" content="java，后端，算法，程序猿">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Learning is Life">
+<meta property="og:url" content="http://yoursite.com/tags/Javaweb/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="内部类">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-03T16:15:29.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA内部类">
-<meta name="twitter:description" content="内部类">
+<meta name="twitter:title" content="Learning is Life">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -151,198 +147,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java匿名内部类与lambda表达式" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      JAVA内部类
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/05/18/javaweb2/" class="archive-article-date">
+  	<time datetime="2020-05-18T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/05/18/javaweb2/">Javaweb-request以及get、post请求</a>
     </h1>
   
 
-        
-        <a href="/2019/09/03/java匿名内部类与lambda表达式/" class="archive-article-date">
-  	<time datetime="2019-09-03T12:22:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><a id="more"></a>
-<p>在java内部类主要分为</p>
-<ul>
-<li><strong>成员内部类</strong>（<strong>非静态内部类</strong> <strong>静态内部类</strong>）</li>
-<li><strong>匿名内部类</strong></li>
-<li>局部内部类（不常用）</li>
-</ul>
-<hr>
-<h2 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h2><p>可以用任意访问符修饰。</p>
-<h3 id="1-非静态内部类"><a href="#1-非静态内部类" class="headerlink" title="1. 非静态内部类"></a>1. 非静态内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span>//定义一个外部类</span></span><br><span class="line"><span class="class">	</span>&#123;</span><br><span class="line">		<span class="keyword">private</span> String member = <span class="string">"外部类成员"</span>;</span><br><span class="line">		</span><br><span class="line">		 <span class="class"><span class="keyword">class</span> <span class="title">Inner</span>//定义在类中跟成员相似，所以称为成员内部类</span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">		<span class="keyword">private</span>	 String member = <span class="string">"内部类成员"</span>;</span><br><span class="line">		<span class="function"><span class="keyword">public</span>	 <span class="keyword">void</span> <span class="title">Getname</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				String member = <span class="string">"内部方法成员"</span>;</span><br><span class="line">				System.out.println(Outer.<span class="keyword">this</span>.member);<span class="comment">//访问外部类成员</span></span><br><span class="line">				System.out.println(<span class="keyword">this</span>.member);<span class="comment">//访问内部类成员</span></span><br><span class="line">				System.out.println(member);<span class="comment">//访问内部方法成员</span></span><br><span class="line">				</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-
-<p>创建非静态成员内部对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInnerClass</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Outer.Inner in = <span class="keyword">new</span> Outer().new Inner();</span><br><span class="line">		in.Getname();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>外部类不可访问非静态内部类成员</strong></li>
-<li><strong>非静态内部类里面不可以用静态内部类方法，静态属性，静态模块</strong></li>
-</ul>
-<hr>
-<h3 id="2-静态内部类"><a href="#2-静态内部类" class="headerlink" title="2.静态内部类"></a>2.静态内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInnerClass</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Outer.Inner in = <span class="keyword">new</span> Outer.Inner();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Outer</span>//定义一个外部类</span></span><br><span class="line"><span class="class">	</span>&#123;</span><br><span class="line">		 <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span>// 定义静态内部类</span></span><br><span class="line"><span class="class">		</span>&#123;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在Java里，静态方法不能直接调用动态方法</li>
-<li>创建静态内部类成员可不存在外部类对象</li>
-</ul>
-<hr>
-<h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnonymousInnerClass</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		TestAnonymousInnerClass.testclass(<span class="keyword">new</span> T() &#123;</span><br><span class="line">			</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"重写test方法"</span>);</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);<span class="comment">//匿名内部类语法</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">interface</span> <span class="title">T</span></span></span><br><span class="line"><span class="class">	</span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testclass</span><span class="params">(T aa)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"方法被调用"</span>);</span><br><span class="line">		aa.test();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>不需要实现接口的类和对象</strong></li>
-<li>必须借助接口或者父类 </li>
-</ul>
-<hr>
-<h2 id="方法内部类"><a href="#方法内部类" class="headerlink" title="方法内部类"></a>方法内部类</h2><ul>
-<li>作用于方法内部只能在方法内部使用</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javaweb</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/java匿名内部类与lambda表达式/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2019/09/03/lambda表达式的推导/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JAVA-&gt;lambda表达式的推导
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/05/17/javaweb1/" class="archive-article-date">
+  	<time datetime="2020-05-17T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#内部类"><span class="toc-number">1.</span> <span class="toc-text">内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#成员内部类"><span class="toc-number">1.1.</span> <span class="toc-text">成员内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-非静态内部类"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 非静态内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-静态内部类"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.静态内部类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名内部类"><span class="toc-number">1.2.</span> <span class="toc-text">匿名内部类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法内部类"><span class="toc-number">1.3.</span> <span class="toc-text">方法内部类</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/05/17/javaweb1/">Javaweb-eclipse</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javaweb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -365,9 +261,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
