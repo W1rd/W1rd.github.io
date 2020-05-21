@@ -169,27 +169,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Javaweb-request以及get、post请求"><a href="#Javaweb-request以及get、post请求" class="headerlink" title="Javaweb-request以及get、post请求"></a>Javaweb-request以及get、post请求</h1><ul>
-<li><strong>request</strong>：请求对象；存储客户端向服务端发送的请求信息</li>
-<li><strong>request对象的常见方法：</strong><ol>
-<li><code>String getParameter(String name)</code>: 根据请求的字段名key(<em>input的name属性</em>),返回字段值Value (<em>input的value属性</em>)</li>
-<li><code>String[] getParameterValues(String name)</code>: 根据请求的字段名key，返回字段值Value（checkbox）</li>
-<li><code>void setCharacterEncoding(”编码格式utf-8“)</code>：设置请求编码（tomcat7以前默认iso-8859-1，tomcat8以后改成utf-8）</li>
-<li><code>getRequestDispatcher（”b.jsp“.forward（request，response）;</code>:请求转发的方式跳转页面</li>
-<li><code>ServeletContext getServerContext()</code>:获取项目点ServletContext对象</li>
-</ol>
-</li>
-</ul>
-<p>##示例<br>注册<img src="media/15897871430460/15897962194756.jpg" alt="-w520"><br><img src="media/15897871430460/15897962472153.jpg" alt="-w530"></p>
-<h2 id="get和post"><a href="#get和post" class="headerlink" title="get和post"></a>get和post</h2><ul>
-<li>get提交方式：method=”get“和地址栏、超链接请求方式默认都是get提交方式<br><br><strong>get和post请求的区别</strong>：<br></li>
-</ul>
-<p>1.get方式在地址栏显示信息（但是地址栏能够容纳的信息有限，4-5kb；如果请求数据大文件会出现容纳不下的报错）<br>2.文件上传操作，必须是post<br>推荐使用post<br><br></p>
-<ul>
-<li>统一请求的编码request<br></li>
-</ul>
-<p>1.get方式如果出现乱码，解决：<br>i.统一每一个变量的编码<br><code>name =new String(x.getBytes(旧编码),”新编码“)</code><br>ii.修改server.xml，一次性更改tomcat默认编码(修改URIEncoding属性)<br><br><br>2.post方式如果出现乱码,解决:<br><code>request.setCharacterEncoding(”编码格式“)</code></p>
-
+        <h1 id="Javaweb-request以及get、post请求"><a href="#Javaweb-request以及get、post请求" class="headerlink" title="Javaweb-request以及get、post请求"></a>Javaweb-request以及get、post请求</h1>
+        
       
 
       
@@ -262,44 +243,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Javaweb"><a href="#Javaweb" class="headerlink" title="Javaweb"></a>Javaweb</h1><h2 id="eclipse中的web项目"><a href="#eclipse中的web项目" class="headerlink" title="eclipse中的web项目"></a>eclipse中的web项目</h2><ul>
-<li><p>浏览器可以直接访问WebContent中的文件，例如<a href="http://localhost:8080/myfirst/index1.jsp" target="_blank" rel="noopener">http://localhost:8080/myfirst/index1.jsp</a><br>其中的index.jsp就在WebContent目录中;<br>但是WEB-INF中的文件无法通过客户端（/浏览器）直接访问，只能通过请求转发来访问；<br>tips：并不是任何的内部跳转都能访问WEB-INF</p>
-<ol>
-<li>请求转发，才可以</li>
-<li>重定向</li>
-</ol>
-</li>
-<li><p>配置tomcat环境运行时的环境<br>JSP&lt;-&gt;Servlet</p>
-</li>
-</ul>
-<p>1.将tomcat/lib中的servlet-api.jar加入项目构建路径<br>2.右键项目-&gt;Bulid Path-&gt; Add library-&gt;Server Runtime (相当于把JDK全加进去)</p>
-<ul>
-<li>部署tomcat<br>在servers面板新建一个tomcat实例，在该实例中部署项目（右键-add）之后运行<br>注意：一般建议 将eclipse中的tomcat与本地tomcat的配置信息保持一致；将eclipse中的tomcat设置为托管模式：第一次创建tomcat实例之后，双击，选择Server Location的第二项；<br><img src="media/15897871430460/15897913281460.jpg" alt="-w406"></li>
-</ul>
-<ul>
-<li>统一字符集编码</li>
-</ul>
-<p>1.编码分类<br>设置jsp文件的编码（<strong>jsp文件中的pageEncoding属性</strong>）：jsp-&gt;java<br>设置浏览器读取jsp文件的编码（<strong>jsp文件中的content属性</strong>）<br>一般将上述设置成一样<br>文本编码：<br>    i.将整个eclipse中的文件统一设置<br>    ii.设置整个项目<br>    iii.设置单独文件</p>
-<h2 id="JSP的元素"><a href="#JSP的元素" class="headerlink" title="JSP的元素"></a>JSP的元素</h2><p>（HTML、java代码（脚本Scriptlet）、注释、指令）</p>
-<h4 id="一-脚本Scriptlet"><a href="#一-脚本Scriptlet" class="headerlink" title="一.脚本Scriptlet"></a>一.脚本Scriptlet</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">/*  定义局部变量*/</span><br><span class="line">String name = &quot;name&quot;;</span><br><span class="line">out.print(name+&quot;&lt;br/&gt;&quot;);</span><br><span class="line">/*  out.println不能换行*/</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%!</span><br><span class="line">/* 定义全局变量和方法*/</span><br><span class="line">public String aname = &quot;&quot;;</span><br><span class="line">public void init()</span><br><span class="line">&#123;</span><br><span class="line">	aname=&quot;aname&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%=</span><br><span class="line">/* 输出表达式 */</span><br><span class="line">&quot;hello&quot;+aname/* 表达式不需要分号 */</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：输出表达式中识别HTML代码；</strong></p>
-<h4 id="二-指令"><a href="#二-指令" class="headerlink" title="二.指令"></a>二.指令</h4><p>page指令<br><code>&lt;%@page ...%&gt;</code><br>page指定的属性：<br>1.language:jsp页面使用的脚本语言<br>2.import：导入类<br>3.pageEncoding：jsp文件自身编码jsp-&gt;java<br>4.contentType:浏览器解析jsp的编码<br>示例：<br><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html;charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot;%&gt;</code></p>
-<h4 id="三-注释"><a href="#三-注释" class="headerlink" title="三.注释"></a>三.注释</h4><p>1.html注释:<code>&lt;!-- --&gt;</code>，可以被客户通过浏览器查看源码所观察到<br>2.java注释:<code>// or /* ... */</code><br>3.jsp注释:<code>&lt;%-- --%&gt;</code></p>
-<p>##JSP内置对象（自带的，不需要new的对象）</p>
-<ol>
-<li>out：输出对象，向客户端输出内容</li>
-<li>pageContext：</li>
-<li>request：请求对象；存储客户端向服务端发送的请求信息</li>
-<li>response</li>
-<li>session</li>
-<li>application</li>
-<li>config</li>
-<li>page</li>
-<li>exception</li>
-</ol>
-
+        <h1 id="Javaweb"><a href="#Javaweb" class="headerlink" title="Javaweb"></a>Javaweb</h1>
+        
       
 
       
@@ -589,11 +534,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">Javaweb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Javaweb</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
             
             <div class="clearfix"></div>
