@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JAVA-&gt;lambda表达式的推导 | Learning is Life</title>
+  <title>Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="lambda表达式">
-<meta name="keywords" content="java">
+  <meta name="description" content="title: Javaweb(7)-JDBC-3date: 2020-05-28 10:35:25tags:    - Javaweb    - JDBC  #CallableStatement ###调用存储过程、存储信息connection.prepareCall（参数：存储过程或存储函数名）参数格式：  存储过程（无返回值return，用Out参数代替）：{call 存储过程名(参数列表)">
+<meta name="keywords" content="java，后端，算法，程序猿">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA-&gt;lambda表达式的推导">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/lambda表达式的推导/index.html">
+<meta property="og:title" content="Learning is Life">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/javaweb7/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="lambda表达式">
+<meta property="og:description" content="title: Javaweb(7)-JDBC-3date: 2020-05-28 10:35:25tags:    - Javaweb    - JDBC  #CallableStatement ###调用存储过程、存储信息connection.prepareCall（参数：存储过程或存储函数名）参数格式：  存储过程（无返回值return，用Out参数代替）：{call 存储过程名(参数列表)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-21T12:44:26.294Z">
+<meta property="og:updated_time" content="2020-05-28T08:36:36.473Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA-&gt;lambda表达式的推导">
-<meta name="twitter:description" content="lambda表达式">
+<meta name="twitter:title" content="Learning is Life">
+<meta name="twitter:description" content="title: Javaweb(7)-JDBC-3date: 2020-05-28 10:35:25tags:    - Javaweb    - JDBC  #CallableStatement ###调用存储过程、存储信息connection.prepareCall（参数：存储过程或存储函数名）参数格式：  存储过程（无返回值return，用Out参数代替）：{call 存储过程名(参数列表)">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -151,46 +151,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-lambda表达式的推导" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-javaweb7" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JAVA-&gt;lambda表达式的推导
-    </h1>
-  
-
-        
-        <a href="/2019/09/03/lambda表达式的推导/" class="archive-article-date">
-  	<time datetime="2019-09-03T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><a id="more"></a>
+        <hr>
+<p>title: Javaweb(7)-JDBC-3<br>date: 2020-05-28 10:35:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
+<hr>
+<p>#CallableStatement</p>
+<p>###调用存储过程、存储信息<br>connection.prepareCall（参数：存储过程或存储函数名）<br>参数格式：</p>
 <ul>
-<li>简化（用一次的）线程</li>
-<li>避免<strong>匿名内部类定义</strong>过多</li>
-<li>外部类不使用内部类不编译 </li>
+<li><p><strong>存储过程（无返回值return，用Out参数代替）</strong>：<br>{call 存储过程名(参数列表)}<br><code>sql:create or replace procedure addNum(num in number,num2 in number,result out number)
+as
+begin 
+result:=num1+num2;
+end;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cstm = connection.prepareCall(&#123;call addNum(?,?,?)&#125;);</span><br><span class="line">cstm.setInt(1,1);</span><br><span class="line">cstm.setInt(2,1);</span><br><span class="line">cstmt.registerOutParameter(3,Types.INTEGER);//声明返回值类型</span><br><span class="line">cstm.execute();//num1+num2</span><br><span class="line">int result = cstmt.getInt(3);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>存储函数（有返回值return）</strong>：<br>{？= call 存储函数名(参数列表)}<br><code>sql:create or replace function addNumfunction(num in number,num2 in number)
+as
+result number
+begin 
+result:=num1+num2;
+return result;
+end;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cstm = connection.prepareCall(&#123;? = call addNumfunction(?,?)&#125;);</span><br><span class="line">cstm.setInt(2,1);</span><br><span class="line">cstm.setInt(3,1);</span><br><span class="line">cstmt.registerOutParameter(1,Types.INTEGER);//声明返回值类型</span><br><span class="line">cstm.execute();//num1+num2</span><br><span class="line">int result = cstmt.getInt(1);</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>案例推导<br><strong>1. 静态内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>##处理稍大型数据</p>
+<p>###存储路径<br>通过JDBC存储文件路径，然后根据IO操作处理<br>例如：JDBC将文件以字符串存储到数据库</p>
+<p>###CLOB/BLOB类型</p>
+<ul>
+<li>CLOB：大文本数据（非文本类不行）<br>示例</li>
+</ul>
+<p>存小说：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String sql = &quot;insert into mynovel values(?,?)&quot;</span><br><span class="line">pstmt = connection.prepareStatement(sql);</span><br><span class="line">pstmt.setInt(1,1);</span><br><span class="line">File file = new File(C:\\....txt);</span><br><span class="line">InputStream in = new FileInputStream(file);</span><br><span class="line">Reader reader = new InputStreamReader(in,&quot;UTF-8&quot;);</span><br><span class="line">int count = pstmt.executeUpdate();</span><br></pre></td></tr></table></figure>
 
-<p>在<code>main</code>方法中实现<code>new Thread(new Test()).start();</code></p>
-<p><strong>2.方法内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test()).start();</span><br><span class="line">		<span class="comment">//方法内部类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test2()).start();</span><br></pre></td></tr></table></figure>
+<p>1.先通过pstmt的？代替小说内容<br>2.在通过pstmt.setCharacterStream（2，reader，（int）fiile.length()）；将上一步的？替换成小说流；<br><br>取小说:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">String sql = &quot;select NOVEL from mynovel where id =? &quot;</span><br><span class="line">pstmt = connection.prepareStatement(sql);</span><br><span class="line">pstmt.setInt(1,1);</span><br><span class="line">ResultSet res = pstmt.executeQuery();</span><br><span class="line">if(res.next())</span><br><span class="line">&#123;</span><br><span class="line">Reader reader = rs.getCharacterStream(&quot;NOVEL&quot;);</span><br><span class="line">Writer wirter = new FileWriter(&quot;src/小说.txt&quot;);</span><br><span class="line">char[] chs = new char[1024];</span><br><span class="line">int len=-1</span><br><span class="line">while((len=reader.read(chs))!=-1)</span><br><span class="line">&#123;</span><br><span class="line">wirter.write(chs,0,len);</span><br><span class="line">&#125;</span><br><span class="line">writer.close()</span><br><span class="line">reader.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>3.匿名内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.lambda表达式</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>删除了<code>new Runnable()接口</code>和<code>run（）方法</code>自动推导<br>一定要有<strong>类型</strong></p>
+<p>1.通过<code>Reader reader = rs.getCharacterStream(&quot;NOVEL&quot;);</code><br>将clob数据保存在Reader对象中<br>2.将Reader通过Writer输出即可</p>
+<br>
+* BLOB：二进制文件
+与CLOB步骤基本一致
+区别：
+改成二进制 字节输出输入流即可
 
       
 
@@ -199,17 +206,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -260,7 +256,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/lambda表达式的推导/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/28/javaweb7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +270,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/17/javaweb1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/28/javaweb8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Javaweb(1)-eclipse
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2019/09/03/java匿名内部类与lambda表达式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA内部类</div>
+    <a href="/2020/05/28/javaweb6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +308,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">lambda表达式</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -326,7 +322,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="lambda表达式的推导" data-title="JAVA-&gt;lambda表达式的推导" data-url="http://yoursite.com/2019/09/03/lambda表达式的推导/"></div>
+	<div class="ds-thread" data-thread-key="javaweb7" data-title="" data-url="http://yoursite.com/2020/05/28/javaweb7/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JAVA-&gt;lambda表达式的推导 | Learning is Life</title>
+  <title>Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="lambda表达式">
-<meta name="keywords" content="java">
+  <meta name="description" content="title: Javaweb(5)-JDBC-1date: 2020-05-24 10:35:25tags:    - Javaweb    - JDBC  #JDBCJava Database Connectivity可以为多种关系型数据库DBMS提供统一的访问方式,用JAVA来操纵数据局 ##JDBC-APIDriverManager：管理jdbc驱动Connection：连接Stateme">
+<meta name="keywords" content="java，后端，算法，程序猿">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA-&gt;lambda表达式的推导">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/lambda表达式的推导/index.html">
+<meta property="og:title" content="Learning is Life">
+<meta property="og:url" content="http://yoursite.com/2020/05/26/javaweb5/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="lambda表达式">
+<meta property="og:description" content="title: Javaweb(5)-JDBC-1date: 2020-05-24 10:35:25tags:    - Javaweb    - JDBC  #JDBCJava Database Connectivity可以为多种关系型数据库DBMS提供统一的访问方式,用JAVA来操纵数据局 ##JDBC-APIDriverManager：管理jdbc驱动Connection：连接Stateme">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-21T12:44:26.294Z">
+<meta property="og:updated_time" content="2020-05-31T07:44:13.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA-&gt;lambda表达式的推导">
-<meta name="twitter:description" content="lambda表达式">
+<meta name="twitter:title" content="Learning is Life">
+<meta name="twitter:description" content="title: Javaweb(5)-JDBC-1date: 2020-05-24 10:35:25tags:    - Javaweb    - JDBC  #JDBCJava Database Connectivity可以为多种关系型数据库DBMS提供统一的访问方式,用JAVA来操纵数据局 ##JDBC-APIDriverManager：管理jdbc驱动Connection：连接Stateme">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -151,46 +151,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-lambda表达式的推导" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-javaweb5" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JAVA-&gt;lambda表达式的推导
-    </h1>
-  
-
-        
-        <a href="/2019/09/03/lambda表达式的推导/" class="archive-article-date">
-  	<time datetime="2019-09-03T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><a id="more"></a>
-<ul>
-<li>简化（用一次的）线程</li>
-<li>避免<strong>匿名内部类定义</strong>过多</li>
-<li>外部类不使用内部类不编译 </li>
-</ul>
-<p>案例推导<br><strong>1. 静态内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <hr>
+<p>title: Javaweb(5)-JDBC-1<br>date: 2020-05-24 10:35:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
+<hr>
+<p>#JDBC<br>Java Database Connectivity<br>可以为多种关系型数据库DBMS提供统一的访问方式,<br>用JAVA来操纵数据局</p>
+<p>##JDBC-API<br>DriverManager：管理jdbc驱动<br>Connection：连接<br>Statement（PreparedStatement）：增删改查<br>CallableStatement：调用数据库中的 存储过程/存储函数<br>Result：返回的结果集</p>
+<p>##JDBC访问数据库的具体步骤</p>
+<ol>
+<li>导入驱动，加载具体的驱动类</li>
+<li>与数据库建立连接</li>
+<li>发送sql，执行</li>
+<li>处理结果集（查询）</li>
+</ol>
+<h4 id="数据库驱动"><a href="#数据库驱动" class="headerlink" title="数据库驱动"></a>数据库驱动</h4><table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>驱动jar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Oracle</td>
+<td>ojdbc-x.jar</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>Mysql-connector-java-x.jar</td>
+</tr>
+<tr>
+<td>SqlServer</td>
+<td>Sqljdbc-x.jar</td>
+</tr>
+</tbody></table>
+<p>##JDBC模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">//1. 导入驱动包、加载具体驱动类</span><br><span class="line">Class.forNmae(&quot;具体驱动类&quot;)</span><br><span class="line">//2. 与数据库建立连接</span><br><span class="line">Connection connection = DriverManager.getConnection(...);</span><br><span class="line">//3. 通过connection，获取操作数据库的对象</span><br><span class="line">（Statement\prepareStatement\callablestatement）</span><br><span class="line">Statement stmt =connection.createStatement();</span><br><span class="line">//4. 处理结果集</span><br><span class="line">ResultSet res = stmst.executeQuery()</span><br><span class="line">while(res.next())&#123;res.getXxx(..);&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">catch(ClassNotFoundException e)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">catch(SQLException e)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">catch(Exception e)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">finally</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">try&#123;if(res!=null)res.close()</span><br><span class="line">...//关闭流，与打开顺序相反&#125;</span><br><span class="line">catch(..)&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//jdbc中，除了Class.forNname()抛出ClassNotFoundException其他都抛出</span><br><span class="line">SQLException；</span><br></pre></td></tr></table></figure>
 
-<p>在<code>main</code>方法中实现<code>new Thread(new Test()).start();</code></p>
-<p><strong>2.方法内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test()).start();</span><br><span class="line">		<span class="comment">//方法内部类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test2()).start();</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.匿名内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.lambda表达式</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>删除了<code>new Runnable()接口</code>和<code>run（）方法</code>自动推导<br>一定要有<strong>类型</strong></p>
 
       
 
@@ -199,17 +199,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -260,7 +249,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/lambda表达式的推导/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/26/javaweb5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +263,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/17/javaweb1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/28/javaweb6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Javaweb(1)-eclipse
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2019/09/03/java匿名内部类与lambda表达式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA内部类</div>
+    <a href="/2020/05/26/javaweb4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +301,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">lambda表达式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库驱动"><span class="toc-number">1.</span> <span class="toc-text">数据库驱动</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -326,7 +315,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="lambda表达式的推导" data-title="JAVA-&gt;lambda表达式的推导" data-url="http://yoursite.com/2019/09/03/lambda表达式的推导/"></div>
+	<div class="ds-thread" data-thread-key="javaweb5" data-title="" data-url="http://yoursite.com/2020/05/26/javaweb5/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

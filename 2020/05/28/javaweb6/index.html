@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JAVA-&gt;lambda表达式的推导 | Learning is Life</title>
+  <title>Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="lambda表达式">
-<meta name="keywords" content="java">
+  <meta name="description" content="title: Javaweb(6)-JDBC-2date: 2020-05-27 10:35:25tags:    - Javaweb    - JDBC  #Statement与preaparedStatement 使用时的区别 StatementString sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)">
+<meta name="keywords" content="java，后端，算法，程序猿">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA-&gt;lambda表达式的推导">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/lambda表达式的推导/index.html">
+<meta property="og:title" content="Learning is Life">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/javaweb6/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="lambda表达式">
+<meta property="og:description" content="title: Javaweb(6)-JDBC-2date: 2020-05-27 10:35:25tags:    - Javaweb    - JDBC  #Statement与preaparedStatement 使用时的区别 StatementString sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-21T12:44:26.294Z">
+<meta property="og:updated_time" content="2020-05-28T07:16:54.117Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA-&gt;lambda表达式的推导">
-<meta name="twitter:description" content="lambda表达式">
+<meta name="twitter:title" content="Learning is Life">
+<meta name="twitter:description" content="title: Javaweb(6)-JDBC-2date: 2020-05-27 10:35:25tags:    - Javaweb    - JDBC  #Statement与preaparedStatement 使用时的区别 StatementString sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -151,46 +151,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-lambda表达式的推导" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-javaweb6" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JAVA-&gt;lambda表达式的推导
-    </h1>
-  
-
-        
-        <a href="/2019/09/03/lambda表达式的推导/" class="archive-article-date">
-  	<time datetime="2019-09-03T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><a id="more"></a>
+        <hr>
+<p>title: Javaweb(6)-JDBC-2<br>date: 2020-05-27 10:35:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
+<hr>
+<p>#Statement与preaparedStatement</p>
+<h3 id="使用时的区别"><a href="#使用时的区别" class="headerlink" title="使用时的区别"></a>使用时的区别</h3><ol>
+<li>Statement<br>String sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)“;<br>stmt.excuteIUpdate(sql)<br><br></li>
+<li>preaparedStatement<br>sql(存在占位符’?’)<br>在创建preaparedStatement对象时，将sql预编译preaparedStatement(sql)<br>excuteUpdate（）<br>setXxxx（）替换占位符’?’</li>
+</ol>
+<p>###推荐使用preaparedStatement<br><strong>1.编码更加方便(避免字符串的拼接)</strong><br>String name=”ab”;<br>int age =23;</p>
+<p>stmt:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String sql=”insert into student(stuno,stuname) values(&apos; &quot;+name+&quot;&apos;,&quot;+age+&quot;)“;</span><br><span class="line">stmt.excuteUpdate();</span><br></pre></td></tr></table></figure>
+
+<p>pstmt:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String sql=&quot;insert into student(stuno,stuname) values(?,?)”;</span><br><span class="line">pstmt = connection.prepareStatement(sql)</span><br><span class="line">pstmt.setString(1,name);</span><br><span class="line">pstmt.setString(2,age);</span><br><span class="line">pstmt.excuteUpdate();</span><br></pre></td></tr></table></figure>
+
+<br>
+**2.提高性能**
+preaparedStatement预编译了sql，预编译只执行一次
+<br>
+**3.安全**
+* stmt:存在被sql注入的风险
+(例如输入 用户名:任意值' or 1=1 --
+        密码：任意值)
+分析:
+`select count(\*) from login where uname='任意值' or 1=1 --'and upwd='任意值';`
+将上个sql语句拼接转义成了
+`select count(*) from login`
+
 <ul>
-<li>简化（用一次的）线程</li>
-<li>避免<strong>匿名内部类定义</strong>过多</li>
-<li>外部类不使用内部类不编译 </li>
+<li>pstmt:有效的防止sql注入</li>
 </ul>
-<p>案例推导<br><strong>1. 静态内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在<code>main</code>方法中实现<code>new Thread(new Test()).start();</code></p>
-<p><strong>2.方法内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test()).start();</span><br><span class="line">		<span class="comment">//方法内部类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test2()).start();</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.匿名内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.lambda表达式</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>删除了<code>new Runnable()接口</code>和<code>run（）方法</code>自动推导<br>一定要有<strong>类型</strong></p>
 
       
 
@@ -199,17 +195,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -260,7 +245,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/lambda表达式的推导/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/28/javaweb6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +259,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/17/javaweb1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/28/javaweb7/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Javaweb(1)-eclipse
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2019/09/03/java匿名内部类与lambda表达式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA内部类</div>
+    <a href="/2020/05/26/javaweb5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +297,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">lambda表达式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用时的区别"><span class="toc-number">1.</span> <span class="toc-text">使用时的区别</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -326,7 +311,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="lambda表达式的推导" data-title="JAVA-&gt;lambda表达式的推导" data-url="http://yoursite.com/2019/09/03/lambda表达式的推导/"></div>
+	<div class="ds-thread" data-thread-key="javaweb6" data-title="" data-url="http://yoursite.com/2020/05/28/javaweb6/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

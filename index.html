@@ -149,6 +149,640 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-javaweb9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Javaweb(9)-MVC设计模式与Servlet<br>date: 2020-05-31 10:40:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
+<hr>
+<p>#MVC设计模式</p>
+<h5 id="用户例图"><a href="#用户例图" class="headerlink" title="用户例图."></a>用户例图.</h5><p><img src="/2020/05/31/javaweb9/1.jpeg" alt></p>
+<ul>
+<li><strong>M</strong><br>Model,模型：<ol>
+<li>用JavaBean实现</li>
+</ol>
+</li>
+<li><strong>V</strong><br>View，视图：<ol>
+<li>用于展示、以及与用户互动。</li>
+<li>使用HTML、JS、CSS、JSP、JQuery等前端技术实现</li>
+</ol>
+</li>
+<li><strong>C</strong><br>Controller，控制器：<ol>
+<li>接受请求，将请求跳转到模型进行处理</li>
+<li>模型处理完毕后，再将处理的结果返回给请求处</li>
+<li>一般建议使用Servlet实现控制器</li>
+</ol>
+</li>
+</ul>
+<h5 id="开发者例图"><a href="#开发者例图" class="headerlink" title="开发者例图."></a>开发者例图.</h5><p><img src="/2020/05/31/javaweb9/2.jpeg" alt></p>
+<h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h1><p>JSP-&gt;JAVA(Servlet)-&gt;JSP</p>
+<ul>
+<li><p>符合一定规范的JAVA类<br>1.必须继承java.servlet.http.HttpServlet<br>2.重写其中的doGet()或者doPost() 方法<br><br><strong>doGet()</strong>:接受并处理所有get提交的方法请求()<br><strong>doPost()</strong>:接受并处理所有post提交的方法请求()</p>
+</li>
+<li><p>使用Sevlet<br>1.<strong>Servlet2.5:必须配置web.xml</strong><br>可以使用Eclipse自动生成，新建一个Servlet</p>
+<ul>
+<li>Servlet2.5的流程<br>web.xml中请求-&gt;<strong>url-pattern</strong>-&gt;根据<strong>servlet-mapping</strong>-&gt;中的<strong>servlet-name</strong>-&gt;去匹配servlet中的<strong>servlet-name</strong>-&gt;最终将请求交给<strong>servlet-class</strong></li>
+<li>映射关系如图：<br><img src="/2020/05/31/javaweb9/4.jpeg" alt></li>
+</ul>
+<p>2.<strong>Servlet3.0:或者配置@WebServlet</strong></p>
+<ul>
+<li>Servlet3.0的流程<br>Servlet3.0不需要在web.xml中配置，但需要在Servlet类的定义处配置@WebServlet（“原servlet2.5url-pattern的值”）</li>
+<li>映射关系如图：<br><img src="/2020/05/31/javaweb9/3.jpeg" alt></li>
+</ul>
+</li>
+<li><p>Servlet注意</p>
+<ul>
+<li><strong>web.xml中的/代表的是项目根目录</strong><br><br>项目的根目录：WebContent、src(根目录构建路径)<br>先会在根目录找子目录，然后再去子目录找文件</li>
+<li><strong>jsp中的/代表的是服务器根目录</strong> </li>
+</ul>
+</li>
+</ul>
+<h2 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h2><ul>
+<li><strong>五个阶段</strong><ol>
+<li><strong>加载</strong>(Serlvet容器自动处理)</li>
+<li><strong>初始化</strong>(init()，会在Servlet被加载并实例化以后执行)</li>
+<li><strong>服务</strong>(service()-&gt;doGet()、doPost())</li>
+<li><strong>销毁</strong>(destroy(),Servlet被系统回收时会执行)</li>
+<li><strong>卸载</strong>(Serlvet容器自动处理)</li>
+</ol>
+</li>
+</ul>
+<h4 id="具体方法执行时间"><a href="#具体方法执行时间" class="headerlink" title="具体方法执行时间"></a>具体方法执行时间</h4><ul>
+<li>init()：<ol>
+<li>默认第一次访问Servlet时会执行(只执行一次)</li>
+<li>可以修改为Tomcat启动时自动执行</li>
+</ol>
+</li>
+</ul>
+<p>Servlet2.5时: </p>
+<p><code>&lt;servlet&gt;
+...
+&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+--1代表第一个执行
+&lt;/servlet&gt;</code></p>
+<p>Servlet3.0时: </p>
+<p><code>@WebServlet(value=&quot;/....&quot;,loadonstartup=&quot;1&quot;)</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/31/javaweb9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaweb8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Javaweb(8)-jsp连接数据库<br>date: 2020-05-28 10:40:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
+<hr>
+<p>#JSP访问数据库</p>
+<ul>
+<li>JSP就是html中嵌套java代码，因此可以写在jsp中</li>
+<li>导包操作：jar复制到WEB-INF/lib</li>
+<li>核心：就是将java中的jdbc代码,复制到jsp中的&lt;%% &gt;</li>
+</ul>
+<p>##JAVABEAN</p>
+<p>#####定义：<br>是一个JAVA的类有以下特点：</p>
+<ol>
+<li>public修饰的类，public的无参构造</li>
+<li>所有的属性都是private，并且提供了set/get（如果是boolean则get可以替换成is ）</li>
+</ol>
+<p>#####作用</p>
+<ol>
+<li>减轻JSP的复杂度</li>
+<li>提高代码的复用</li>
+</ol>
+<p>#####使用层面</p>
+<ol>
+<li>封装业务的逻辑层(操作封装数据)</li>
+<li>封装数据的业务层（对应数据库的一张表）</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/28/javaweb8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaweb7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Javaweb(7)-JDBC-3<br>date: 2020-05-28 10:35:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
+<hr>
+<p>#CallableStatement</p>
+<p>###调用存储过程、存储信息<br>connection.prepareCall（参数：存储过程或存储函数名）<br>参数格式：</p>
+<ul>
+<li><p><strong>存储过程（无返回值return，用Out参数代替）</strong>：<br>{call 存储过程名(参数列表)}<br><code>sql:create or replace procedure addNum(num in number,num2 in number,result out number)
+as
+begin 
+result:=num1+num2;
+end;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cstm = connection.prepareCall(&#123;call addNum(?,?,?)&#125;);</span><br><span class="line">cstm.setInt(1,1);</span><br><span class="line">cstm.setInt(2,1);</span><br><span class="line">cstmt.registerOutParameter(3,Types.INTEGER);//声明返回值类型</span><br><span class="line">cstm.execute();//num1+num2</span><br><span class="line">int result = cstmt.getInt(3);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>存储函数（有返回值return）</strong>：<br>{？= call 存储函数名(参数列表)}<br><code>sql:create or replace function addNumfunction(num in number,num2 in number)
+as
+result number
+begin 
+result:=num1+num2;
+return result;
+end;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cstm = connection.prepareCall(&#123;? = call addNumfunction(?,?)&#125;);</span><br><span class="line">cstm.setInt(2,1);</span><br><span class="line">cstm.setInt(3,1);</span><br><span class="line">cstmt.registerOutParameter(1,Types.INTEGER);//声明返回值类型</span><br><span class="line">cstm.execute();//num1+num2</span><br><span class="line">int result = cstmt.getInt(1);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>##处理稍大型数据</p>
+<p>###存储路径<br>通过JDBC存储文件路径，然后根据IO操作处理<br>例如：JDBC将文件以字符串存储到数据库</p>
+<p>###CLOB/BLOB类型</p>
+<ul>
+<li>CLOB：大文本数据（非文本类不行）<br>示例</li>
+</ul>
+<p>存小说：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String sql = &quot;insert into mynovel values(?,?)&quot;</span><br><span class="line">pstmt = connection.prepareStatement(sql);</span><br><span class="line">pstmt.setInt(1,1);</span><br><span class="line">File file = new File(C:\\....txt);</span><br><span class="line">InputStream in = new FileInputStream(file);</span><br><span class="line">Reader reader = new InputStreamReader(in,&quot;UTF-8&quot;);</span><br><span class="line">int count = pstmt.executeUpdate();</span><br></pre></td></tr></table></figure>
+
+<p>1.先通过pstmt的？代替小说内容<br>2.在通过pstmt.setCharacterStream（2，reader，（int）fiile.length()）；将上一步的？替换成小说流；<br><br>取小说:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">String sql = &quot;select NOVEL from mynovel where id =? &quot;</span><br><span class="line">pstmt = connection.prepareStatement(sql);</span><br><span class="line">pstmt.setInt(1,1);</span><br><span class="line">ResultSet res = pstmt.executeQuery();</span><br><span class="line">if(res.next())</span><br><span class="line">&#123;</span><br><span class="line">Reader reader = rs.getCharacterStream(&quot;NOVEL&quot;);</span><br><span class="line">Writer wirter = new FileWriter(&quot;src/小说.txt&quot;);</span><br><span class="line">char[] chs = new char[1024];</span><br><span class="line">int len=-1</span><br><span class="line">while((len=reader.read(chs))!=-1)</span><br><span class="line">&#123;</span><br><span class="line">wirter.write(chs,0,len);</span><br><span class="line">&#125;</span><br><span class="line">writer.close()</span><br><span class="line">reader.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.通过<code>Reader reader = rs.getCharacterStream(&quot;NOVEL&quot;);</code><br>将clob数据保存在Reader对象中<br>2.将Reader通过Writer输出即可</p>
+<br>
+* BLOB：二进制文件
+与CLOB步骤基本一致
+区别：
+改成二进制 字节输出输入流即可
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/28/javaweb7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaweb6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Javaweb(6)-JDBC-2<br>date: 2020-05-27 10:35:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
+<hr>
+<p>#Statement与preaparedStatement</p>
+<h3 id="使用时的区别"><a href="#使用时的区别" class="headerlink" title="使用时的区别"></a>使用时的区别</h3><ol>
+<li>Statement<br>String sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)“;<br>stmt.excuteIUpdate(sql)<br><br></li>
+<li>preaparedStatement<br>sql(存在占位符’?’)<br>在创建preaparedStatement对象时，将sql预编译preaparedStatement(sql)<br>excuteUpdate（）<br>setXxxx（）替换占位符’?’</li>
+</ol>
+<p>###推荐使用preaparedStatement<br><strong>1.编码更加方便(避免字符串的拼接)</strong><br>String name=”ab”;<br>int age =23;</p>
+<p>stmt:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String sql=”insert into student(stuno,stuname) values(&apos; &quot;+name+&quot;&apos;,&quot;+age+&quot;)“;</span><br><span class="line">stmt.excuteUpdate();</span><br></pre></td></tr></table></figure>
+
+<p>pstmt:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String sql=&quot;insert into student(stuno,stuname) values(?,?)”;</span><br><span class="line">pstmt = connection.prepareStatement(sql)</span><br><span class="line">pstmt.setString(1,name);</span><br><span class="line">pstmt.setString(2,age);</span><br><span class="line">pstmt.excuteUpdate();</span><br></pre></td></tr></table></figure>
+
+<br>
+**2.提高性能**
+preaparedStatement预编译了sql，预编译只执行一次
+<br>
+**3.安全**
+* stmt:存在被sql注入的风险
+(例如输入 用户名:任意值' or 1=1 --
+        密码：任意值)
+分析:
+`select count(\*) from login where uname='任意值' or 1=1 --'and upwd='任意值';`
+将上个sql语句拼接转义成了
+`select count(*) from login`
+
+<ul>
+<li>pstmt:有效的防止sql注入</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/28/javaweb6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaweb5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Javaweb(5)-JDBC-1<br>date: 2020-05-24 10:35:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
+<hr>
+<p>#JDBC<br>Java Database Connectivity<br>可以为多种关系型数据库DBMS提供统一的访问方式,<br>用JAVA来操纵数据局</p>
+<p>##JDBC-API<br>DriverManager：管理jdbc驱动<br>Connection：连接<br>Statement（PreparedStatement）：增删改查<br>CallableStatement：调用数据库中的 存储过程/存储函数<br>Result：返回的结果集</p>
+<p>##JDBC访问数据库的具体步骤</p>
+<ol>
+<li>导入驱动，加载具体的驱动类</li>
+<li>与数据库建立连接</li>
+<li>发送sql，执行</li>
+<li>处理结果集（查询）</li>
+</ol>
+<h4 id="数据库驱动"><a href="#数据库驱动" class="headerlink" title="数据库驱动"></a>数据库驱动</h4><table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>驱动jar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Oracle</td>
+<td>ojdbc-x.jar</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>Mysql-connector-java-x.jar</td>
+</tr>
+<tr>
+<td>SqlServer</td>
+<td>Sqljdbc-x.jar</td>
+</tr>
+</tbody></table>
+<p>##JDBC模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">//1. 导入驱动包、加载具体驱动类</span><br><span class="line">Class.forNmae(&quot;具体驱动类&quot;)</span><br><span class="line">//2. 与数据库建立连接</span><br><span class="line">Connection connection = DriverManager.getConnection(...);</span><br><span class="line">//3. 通过connection，获取操作数据库的对象</span><br><span class="line">（Statement\prepareStatement\callablestatement）</span><br><span class="line">Statement stmt =connection.createStatement();</span><br><span class="line">//4. 处理结果集</span><br><span class="line">ResultSet res = stmst.executeQuery()</span><br><span class="line">while(res.next())&#123;res.getXxx(..);&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">catch(ClassNotFoundException e)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">catch(SQLException e)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">catch(Exception e)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">finally</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">try&#123;if(res!=null)res.close()</span><br><span class="line">...//关闭流，与打开顺序相反&#125;</span><br><span class="line">catch(..)&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//jdbc中，除了Class.forNname()抛出ClassNotFoundException其他都抛出</span><br><span class="line">SQLException；</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/26/javaweb5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaweb4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Javaweb(4)-四种范围对象<br>date: 2020-05-23 09:35:25<br>tags:<br>    - Javaweb</p>
+<hr>
+<p>#四种范围对象</p>
+<ol>
+<li>pageContext JSP页面容器（page对象）</li>
+<li>request 请求对象</li>
+<li>session 会话对象</li>
+<li>appliation 全区对象</li>
+</ol>
+<h2 id="四个范围对象共有的方法"><a href="#四个范围对象共有的方法" class="headerlink" title="四个范围对象共有的方法"></a>四个范围对象共有的方法</h2><p><code>Object getAtrribute（String name）</code>:<br>根据属性名，或者属性值<br><code>void setAtrribute（String name，Object obj）</code>:<br>设置属性值（新增或者修改）<br>例如<code>setAtrribute(&quot;a&quot;,&quot;b&quot;)</code>：<br>如果a对象之前不存在，则新建一个a对象；<br>如果a之前已经存在，则将a的值改为b<br><code>void removeAtrribute（String name）</code>:<br>根据属性名，删除对象</p>
+<h2 id="有效范围"><a href="#有效范围" class="headerlink" title="有效范围"></a>有效范围</h2><ol>
+<li><strong>pageContext</strong>：当前页面有效（跳转后无效）</li>
+<li><strong>request</strong>：同一次请求有效；其他请求无效（请求转发后有效，重定向无效）</li>
+<li><strong>session</strong>:同一次会话有效（无论页面怎么跳转，有效；关闭/切换浏览器后无效）</li>
+<li><strong>application</strong>：全局变量；整个项目运行期间都有效（切换浏览器仍然有效）；关闭服务、其他项目则无效<br>多个项目共享、重启仍然有效：JNDI</li>
+</ol>
+<blockquote>
+<p>以上四个对象都可以通过setAtrribute()赋值,通过getAtrribute取值<br>以上范围对象，尽量使用最小的范围，因为对象的范围越大，造成的性能损失越高</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/26/javaweb4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaweb3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/19/javaweb3/">Javaweb(3)-response</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/19/javaweb3/" class="archive-article-date">
+  	<time datetime="2020-05-19T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Javaweb-response、cookie、session"><a href="#Javaweb-response、cookie、session" class="headerlink" title="Javaweb-response、cookie、session"></a>Javaweb-response、cookie、session</h1><h3 id="response-响应对象"><a href="#response-响应对象" class="headerlink" title="response:响应对象"></a>response:响应对象</h3><h5 id="提供的方法："><a href="#提供的方法：" class="headerlink" title="提供的方法："></a>提供的方法：</h5><ul>
+<li><p><code>void addCookie(Cookie cookie)</code>:<br>服务端向客户端增加cookie对象</p>
+</li>
+<li><p><code>void sendRedirect（Srting location）throws IOException</code>：重定向</p>
+</li>
+<li><p><code>void setContetType(String type)</code>:设置服务端的响应编码（设置服务端的contentype类型）</p>
+</li>
+</ul>
+<hr>
+<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><p>登录<br>login.jsp-&gt;check.jsp-&gt;success.jsp</p>
+<p><strong>重定向示意图：</strong><br><img src="/2020/05/19/javaweb3/WechatIMG21.png" alt><br><strong>请求转发示意图：</strong><br><img src="javaweb3//WechatIMG11.png" alt></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>请求转发</th>
+<th>重定向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>地址栏是否改变</strong></td>
+<td>不变(check.jsp)</td>
+<td>改变(success.jsp)</td>
+</tr>
+<tr>
+<td><strong>是否保留第一次请求时的数据</strong></td>
+<td>保留</td>
+<td>不保留</td>
+</tr>
+<tr>
+<td><strong>请求的次数</strong></td>
+<td>1次</td>
+<td>2次</td>
+</tr>
+<tr>
+<td><strong>跳转发生的位置</strong></td>
+<td>服务端</td>
+<td>客户端发出第二次跳转</td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="转发、重定向："><a href="#转发、重定向：" class="headerlink" title="转发、重定向："></a>转发、重定向：</h2><h3 id="转发："><a href="#转发：" class="headerlink" title="转发："></a>转发：</h3><p>人A（客户端）-&gt;【服务窗口A（服务端）-&gt;服务窗口B（地址栏不变）】-&gt;人A（服务窗口B直接返回，一次跳转）</p>
+<h3 id="重定向："><a href="#重定向：" class="headerlink" title="重定向："></a>重定向：</h3><p>人A（客户端）-&gt;服务窗口A（服务端）-&gt;找服务窗口B<br>人A（客户端）-&gt;服务窗口B（服务端）-&gt;结束</p>
+<p>##session、Cookie</p>
+<ul>
+<li><strong>Cookie</strong>（客户端,不是内置对象）：Cookie是由服务端产生的，再次发送给客户端<br><br><br>1.相当于<strong>本地缓存</strong>的作用：客户端（x.mp4）-&gt;服务器端（x.mp4）[<strong>提高访问服务器端的效率，但是安全性较差</strong>]<br><br><br>2.<strong>name=value</strong><br><code>javax.servlet.http.Cookie</code> <code>public Cookie(String name,String value)</code><br><code>String getName()</code>:获取name<br><code>Srting getVlaue()</code>:获取value<br><code>void setMaxage（int expiry）</code>:设置cookie最大有效期 <br><br><br>3.获取和增加Cookie<br>服务端准备发送给客户端：<br><code>response.addCookie（Cookie cookie）</code><br>页面跳转（转发、重定向）<br>客户端获取cookie：<code>request.getCookies();//只能一次性全拿到cookie</code><br>服务端增加cookie：response对象<br>客户端获取对象：request对象 <br><br></li>
+</ul>
+<p>4.<strong>cookie补充说明</strong>：<br>a.cookie不是内置对象，使用必须new<br>b.但是，服务端会自动生成一个(服务端自动new一个cookie);<br>name=JESSIONID的cookie并返回客户端<br><br></p>
+<ul>
+<li><strong>session</strong> :会话<br>a.浏览网站：打开-关闭<br>b.购物：浏览、付款、退出<br>c.电子邮件:浏览、写邮件、退出<br>开始-结束<br><br></li>
+</ul>
+<p>1.session机制：<br>客户端<strong>第一次</strong>请求服务端时：<br>服务端会产生一个session对象（用于保存客户的信息）;<br>并且每个session对象 都会有一个唯一的sessionID（用于区分其他session）;<br>服务端会产生一个cookie，并且该cookie的name=JESESSIONID，value=服务端的sessionId；<br>然后服务端会在响应客户端的同时将该cookie发送给客户端，客户端就有了一个cookie（JSESSIONIND）;<br>因此，客户端的cookie就可以和服务端的session一一对应（JSESSIONID–sessionID）<br><br><br>客户端<strong>第n次</strong>请求服务端时：<br>服务端会先根据客户端cookie中的JESESSIONID去服务端的session中匹配sessionid，如果匹配成功(cookie JSESSIONID和session sessionid),说明此用户不是第一次访问（无需登录）；<br><br><br><br>2.session核心：<br>a.session储存在服务端<br>b.session是在同一个用户请求时共享<br>c.实现机制：第一次客户请求时 产生一个sessionid并复制给cookie的jsessionid然后发送给客户端，最终一一对应<br><br><br><br>3.session的方法：<br><br><code>String getID()</code>：获取sessionID<br><code>boolean isNew()</code>:判断是否是新用户<br><code>void invalidate()</code>:使session失效(退出登录、注销 )<br><code>void setAtrribute()</code><br><code>Object getAtrribute()</code><br><code>void setMaxInactiveInterval()</code>:设置最大有效 非活动时间<br><br></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javaweb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/19/javaweb3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-javaweb2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -156,7 +790,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/18/javaweb2/">Javaweb-request以及get、post请求</a>
+      <a class="article-title" href="/2020/05/18/javaweb2/">Javaweb(2)-request以及get、post请求</a>
     </h1>
   
 
@@ -230,7 +864,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/17/javaweb1/">Javaweb-eclipse</a>
+      <a class="article-title" href="/2020/05/17/javaweb1/">Javaweb(1)-eclipse</a>
     </h1>
   
 
@@ -371,80 +1005,10 @@
 
 
   
-    <article id="post-java匿名内部类与lambda表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/03/java匿名内部类与lambda表达式/">JAVA内部类</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/03/java匿名内部类与lambda表达式/" class="archive-article-date">
-  	<time datetime="2019-09-03T12:22:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/03/java匿名内部类与lambda表达式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 

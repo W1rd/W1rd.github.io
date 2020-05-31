@@ -6,20 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JAVA-&gt;lambda表达式的推导 | Learning is Life</title>
+  <title>Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="lambda表达式">
-<meta name="keywords" content="java">
+  <meta name="description" content="title: Javaweb(9)-MVC设计模式与Servletdate: 2020-05-31 10:40:25tags:    - Javaweb    - JDBC  #MVC设计模式 用户例图.  MModel,模型： 用JavaBean实现   VView，视图： 用于展示、以及与用户互动。 使用HTML、JS、CSS、JSP、JQuery等前端技术实现   CController，">
+<meta name="keywords" content="java，后端，算法，程序猿">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA-&gt;lambda表达式的推导">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/lambda表达式的推导/index.html">
+<meta property="og:title" content="Learning is Life">
+<meta property="og:url" content="http://yoursite.com/2020/05/31/javaweb9/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="lambda表达式">
+<meta property="og:description" content="title: Javaweb(9)-MVC设计模式与Servletdate: 2020-05-31 10:40:25tags:    - Javaweb    - JDBC  #MVC设计模式 用户例图.  MModel,模型： 用JavaBean实现   VView，视图： 用于展示、以及与用户互动。 使用HTML、JS、CSS、JSP、JQuery等前端技术实现   CController，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-21T12:44:26.294Z">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/javaweb9/1.jpeg">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/javaweb9/2.jpeg">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/javaweb9/4.jpeg">
+<meta property="og:image" content="http://yoursite.com/2020/05/31/javaweb9/3.jpeg">
+<meta property="og:updated_time" content="2020-05-31T07:49:46.617Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA-&gt;lambda表达式的推导">
-<meta name="twitter:description" content="lambda表达式">
+<meta name="twitter:title" content="Learning is Life">
+<meta name="twitter:description" content="title: Javaweb(9)-MVC设计模式与Servletdate: 2020-05-31 10:40:25tags:    - Javaweb    - JDBC  #MVC设计模式 用户例图.  MModel,模型： 用JavaBean实现   VView，视图： 用于展示、以及与用户互动。 使用HTML、JS、CSS、JSP、JQuery等前端技术实现   CController，">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/31/javaweb9/1.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -151,46 +156,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-lambda表达式的推导" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-javaweb9" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JAVA-&gt;lambda表达式的推导
-    </h1>
-  
-
-        
-        <a href="/2019/09/03/lambda表达式的推导/" class="archive-article-date">
-  	<time datetime="2019-09-03T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><a id="more"></a>
+        <hr>
+<p>title: Javaweb(9)-MVC设计模式与Servlet<br>date: 2020-05-31 10:40:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
+<hr>
+<p>#MVC设计模式</p>
+<h5 id="用户例图"><a href="#用户例图" class="headerlink" title="用户例图."></a>用户例图.</h5><p><img src="/2020/05/31/javaweb9/1.jpeg" alt></p>
 <ul>
-<li>简化（用一次的）线程</li>
-<li>避免<strong>匿名内部类定义</strong>过多</li>
-<li>外部类不使用内部类不编译 </li>
+<li><strong>M</strong><br>Model,模型：<ol>
+<li>用JavaBean实现</li>
+</ol>
+</li>
+<li><strong>V</strong><br>View，视图：<ol>
+<li>用于展示、以及与用户互动。</li>
+<li>使用HTML、JS、CSS、JSP、JQuery等前端技术实现</li>
+</ol>
+</li>
+<li><strong>C</strong><br>Controller，控制器：<ol>
+<li>接受请求，将请求跳转到模型进行处理</li>
+<li>模型处理完毕后，再将处理的结果返回给请求处</li>
+<li>一般建议使用Servlet实现控制器</li>
+</ol>
+</li>
 </ul>
-<p>案例推导<br><strong>1. 静态内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在<code>main</code>方法中实现<code>new Thread(new Test()).start();</code></p>
-<p><strong>2.方法内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test()).start();</span><br><span class="line">		<span class="comment">//方法内部类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test2()).start();</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.匿名内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.lambda表达式</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>删除了<code>new Runnable()接口</code>和<code>run（）方法</code>自动推导<br>一定要有<strong>类型</strong></p>
+<h5 id="开发者例图"><a href="#开发者例图" class="headerlink" title="开发者例图."></a>开发者例图.</h5><p><img src="/2020/05/31/javaweb9/2.jpeg" alt></p>
+<h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h1><p>JSP-&gt;JAVA(Servlet)-&gt;JSP</p>
+<ul>
+<li><p>符合一定规范的JAVA类<br>1.必须继承java.servlet.http.HttpServlet<br>2.重写其中的doGet()或者doPost() 方法<br><br><strong>doGet()</strong>:接受并处理所有get提交的方法请求()<br><strong>doPost()</strong>:接受并处理所有post提交的方法请求()</p>
+</li>
+<li><p>使用Sevlet<br>1.<strong>Servlet2.5:必须配置web.xml</strong><br>可以使用Eclipse自动生成，新建一个Servlet</p>
+<ul>
+<li>Servlet2.5的流程<br>web.xml中请求-&gt;<strong>url-pattern</strong>-&gt;根据<strong>servlet-mapping</strong>-&gt;中的<strong>servlet-name</strong>-&gt;去匹配servlet中的<strong>servlet-name</strong>-&gt;最终将请求交给<strong>servlet-class</strong></li>
+<li>映射关系如图：<br><img src="/2020/05/31/javaweb9/4.jpeg" alt></li>
+</ul>
+<p>2.<strong>Servlet3.0:或者配置@WebServlet</strong></p>
+<ul>
+<li>Servlet3.0的流程<br>Servlet3.0不需要在web.xml中配置，但需要在Servlet类的定义处配置@WebServlet（“原servlet2.5url-pattern的值”）</li>
+<li>映射关系如图：<br><img src="/2020/05/31/javaweb9/3.jpeg" alt></li>
+</ul>
+</li>
+<li><p>Servlet注意</p>
+<ul>
+<li><strong>web.xml中的/代表的是项目根目录</strong><br><br>项目的根目录：WebContent、src(根目录构建路径)<br>先会在根目录找子目录，然后再去子目录找文件</li>
+<li><strong>jsp中的/代表的是服务器根目录</strong> </li>
+</ul>
+</li>
+</ul>
+<h2 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h2><ul>
+<li><strong>五个阶段</strong><ol>
+<li><strong>加载</strong>(Serlvet容器自动处理)</li>
+<li><strong>初始化</strong>(init()，会在Servlet被加载并实例化以后执行)</li>
+<li><strong>服务</strong>(service()-&gt;doGet()、doPost())</li>
+<li><strong>销毁</strong>(destroy(),Servlet被系统回收时会执行)</li>
+<li><strong>卸载</strong>(Serlvet容器自动处理)</li>
+</ol>
+</li>
+</ul>
+<h4 id="具体方法执行时间"><a href="#具体方法执行时间" class="headerlink" title="具体方法执行时间"></a>具体方法执行时间</h4><ul>
+<li>init()：<ol>
+<li>默认第一次访问Servlet时会执行(只执行一次)</li>
+<li>可以修改为Tomcat启动时自动执行</li>
+</ol>
+</li>
+</ul>
+<p>Servlet2.5时: </p>
+<p><code>&lt;servlet&gt;
+...
+&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+--1代表第一个执行
+&lt;/servlet&gt;</code></p>
+<p>Servlet3.0时: </p>
+<p><code>@WebServlet(value=&quot;/....&quot;,loadonstartup=&quot;1&quot;)</code></p>
 
       
 
@@ -199,17 +239,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -260,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/lambda表达式的推导/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/31/javaweb9/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +303,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/17/javaweb1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Javaweb(1)-eclipse
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/03/java匿名内部类与lambda表达式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA内部类</div>
+    <a href="/2020/05/28/javaweb8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +332,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">lambda表达式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#用户例图"><span class="toc-number">1.</span> <span class="toc-text">用户例图.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#开发者例图"><span class="toc-number">2.</span> <span class="toc-text">开发者例图.</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet"><span class="toc-number"></span> <span class="toc-text">Servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet的生命周期"><span class="toc-number"></span> <span class="toc-text">Servlet的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#具体方法执行时间"><span class="toc-number"></span> <span class="toc-text">具体方法执行时间</span></a>
                     </div>
                 </span>
             </div>
@@ -326,7 +346,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="lambda表达式的推导" data-title="JAVA-&gt;lambda表达式的推导" data-url="http://yoursite.com/2019/09/03/lambda表达式的推导/"></div>
+	<div class="ds-thread" data-thread-key="javaweb9" data-title="" data-url="http://yoursite.com/2020/05/31/javaweb9/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

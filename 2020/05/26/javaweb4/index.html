@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JAVA-&gt;lambda表达式的推导 | Learning is Life</title>
+  <title>Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="lambda表达式">
-<meta name="keywords" content="java">
+  <meta name="description" content="title: Javaweb(4)-四种范围对象date: 2020-05-23 09:35:25tags:    - Javaweb  #四种范围对象  pageContext JSP页面容器（page对象） request 请求对象 session 会话对象 appliation 全区对象  四个范围对象共有的方法Object getAtrribute（String name）:根据属性名，">
+<meta name="keywords" content="java，后端，算法，程序猿">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA-&gt;lambda表达式的推导">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/lambda表达式的推导/index.html">
+<meta property="og:title" content="Learning is Life">
+<meta property="og:url" content="http://yoursite.com/2020/05/26/javaweb4/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="lambda表达式">
+<meta property="og:description" content="title: Javaweb(4)-四种范围对象date: 2020-05-23 09:35:25tags:    - Javaweb  #四种范围对象  pageContext JSP页面容器（page对象） request 请求对象 session 会话对象 appliation 全区对象  四个范围对象共有的方法Object getAtrribute（String name）:根据属性名，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-21T12:44:26.294Z">
+<meta property="og:updated_time" content="2020-05-28T06:47:06.205Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA-&gt;lambda表达式的推导">
-<meta name="twitter:description" content="lambda表达式">
+<meta name="twitter:title" content="Learning is Life">
+<meta name="twitter:description" content="title: Javaweb(4)-四种范围对象date: 2020-05-23 09:35:25tags:    - Javaweb  #四种范围对象  pageContext JSP页面容器（page对象） request 请求对象 session 会话对象 appliation 全区对象  四个范围对象共有的方法Object getAtrribute（String name）:根据属性名，">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -151,46 +151,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-lambda表达式的推导" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-javaweb4" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JAVA-&gt;lambda表达式的推导
-    </h1>
-  
-
-        
-        <a href="/2019/09/03/lambda表达式的推导/" class="archive-article-date">
-  	<time datetime="2019-09-03T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><a id="more"></a>
-<ul>
-<li>简化（用一次的）线程</li>
-<li>避免<strong>匿名内部类定义</strong>过多</li>
-<li>外部类不使用内部类不编译 </li>
-</ul>
-<p>案例推导<br><strong>1. 静态内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在<code>main</code>方法中实现<code>new Thread(new Test()).start();</code></p>
-<p><strong>2.方法内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test()).start();</span><br><span class="line">		<span class="comment">//方法内部类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Test2()).start();</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.匿名内部类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.lambda表达式</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">20</span>; i++) &#123;</span><br><span class="line">					System.out.println(<span class="string">"一边睡觉"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>删除了<code>new Runnable()接口</code>和<code>run（）方法</code>自动推导<br>一定要有<strong>类型</strong></p>
+        <hr>
+<p>title: Javaweb(4)-四种范围对象<br>date: 2020-05-23 09:35:25<br>tags:<br>    - Javaweb</p>
+<hr>
+<p>#四种范围对象</p>
+<ol>
+<li>pageContext JSP页面容器（page对象）</li>
+<li>request 请求对象</li>
+<li>session 会话对象</li>
+<li>appliation 全区对象</li>
+</ol>
+<h2 id="四个范围对象共有的方法"><a href="#四个范围对象共有的方法" class="headerlink" title="四个范围对象共有的方法"></a>四个范围对象共有的方法</h2><p><code>Object getAtrribute（String name）</code>:<br>根据属性名，或者属性值<br><code>void setAtrribute（String name，Object obj）</code>:<br>设置属性值（新增或者修改）<br>例如<code>setAtrribute(&quot;a&quot;,&quot;b&quot;)</code>：<br>如果a对象之前不存在，则新建一个a对象；<br>如果a之前已经存在，则将a的值改为b<br><code>void removeAtrribute（String name）</code>:<br>根据属性名，删除对象</p>
+<h2 id="有效范围"><a href="#有效范围" class="headerlink" title="有效范围"></a>有效范围</h2><ol>
+<li><strong>pageContext</strong>：当前页面有效（跳转后无效）</li>
+<li><strong>request</strong>：同一次请求有效；其他请求无效（请求转发后有效，重定向无效）</li>
+<li><strong>session</strong>:同一次会话有效（无论页面怎么跳转，有效；关闭/切换浏览器后无效）</li>
+<li><strong>application</strong>：全局变量；整个项目运行期间都有效（切换浏览器仍然有效）；关闭服务、其他项目则无效<br>多个项目共享、重启仍然有效：JNDI</li>
+</ol>
+<blockquote>
+<p>以上四个对象都可以通过setAtrribute()赋值,通过getAtrribute取值<br>以上范围对象，尽量使用最小的范围，因为对象的范围越大，造成的性能损失越高</p>
+</blockquote>
 
       
 
@@ -199,17 +184,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -260,7 +234,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/lambda表达式的推导/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/26/javaweb4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +248,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/17/javaweb1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/26/javaweb5/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Javaweb(1)-eclipse
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2019/09/03/java匿名内部类与lambda表达式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA内部类</div>
+    <a href="/2020/05/19/javaweb3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javaweb(3)-response</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +286,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">lambda表达式</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#四个范围对象共有的方法"><span class="toc-number">1.</span> <span class="toc-text">四个范围对象共有的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有效范围"><span class="toc-number">2.</span> <span class="toc-text">有效范围</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -326,7 +300,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="lambda表达式的推导" data-title="JAVA-&gt;lambda表达式的推导" data-url="http://yoursite.com/2019/09/03/lambda表达式的推导/"></div>
+	<div class="ds-thread" data-thread-key="javaweb4" data-title="" data-url="http://yoursite.com/2020/05/26/javaweb4/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
