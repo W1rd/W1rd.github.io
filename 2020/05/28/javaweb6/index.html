@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: Javaweb(6)-JDBC-2date: 2020-05-27 10:35:25tags:    - Javaweb    - JDBC  #Statement与preaparedStatement 使用时的区别 StatementString sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)">
+  <meta name="description" content="title: Javaweb(6)-JDBC-2date: 2020-05-27 10:35:25tags:    - Javaweb    - JDBC  #Statement与preaparedStatement">
 <meta name="keywords" content="java，后端，算法，程序猿">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning is Life">
 <meta property="og:url" content="http://yoursite.com/2020/05/28/javaweb6/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="title: Javaweb(6)-JDBC-2date: 2020-05-27 10:35:25tags:    - Javaweb    - JDBC  #Statement与preaparedStatement 使用时的区别 StatementString sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)">
+<meta property="og:description" content="title: Javaweb(6)-JDBC-2date: 2020-05-27 10:35:25tags:    - Javaweb    - JDBC  #Statement与preaparedStatement">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-28T07:16:54.117Z">
+<meta property="og:updated_time" content="2020-05-31T07:54:30.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning is Life">
-<meta name="twitter:description" content="title: Javaweb(6)-JDBC-2date: 2020-05-27 10:35:25tags:    - Javaweb    - JDBC  #Statement与preaparedStatement 使用时的区别 StatementString sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)">
+<meta name="twitter:description" content="title: Javaweb(6)-JDBC-2date: 2020-05-27 10:35:25tags:    - Javaweb    - JDBC  #Statement与preaparedStatement">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -160,6 +160,7 @@
 <p>title: Javaweb(6)-JDBC-2<br>date: 2020-05-27 10:35:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
 <hr>
 <p>#Statement与preaparedStatement</p>
+<a id="more"></a>
 <h3 id="使用时的区别"><a href="#使用时的区别" class="headerlink" title="使用时的区别"></a>使用时的区别</h3><ol>
 <li>Statement<br>String sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)“;<br>stmt.excuteIUpdate(sql)<br><br></li>
 <li>preaparedStatement<br>sql(存在占位符’?’)<br>在创建preaparedStatement对象时，将sql预编译preaparedStatement(sql)<br>excuteUpdate（）<br>setXxxx（）替换占位符’?’</li>
