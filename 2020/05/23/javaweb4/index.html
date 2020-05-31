@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Learning is Life">
 <meta property="og:description" content="四种范围对象">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-31T08:16:57.203Z">
+<meta property="og:updated_time" content="2020-05-31T08:28:19.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javaweb(4)-四种范围对象">
 <meta name="twitter:description" content="四种范围对象">
@@ -178,7 +178,7 @@
 <li>session 会话对象</li>
 <li>appliation 全区对象</li>
 </ol>
-<h2 id="四个范围对象共有的方法"><a href="#四个范围对象共有的方法" class="headerlink" title="四个范围对象共有的方法"></a>四个范围对象共有的方法</h2><p><code>Object getAtrribute（String name）</code>:<br>根据属性名，或者属性值<br><code>void setAtrribute（String name，Object obj）</code>:<br>设置属性值（新增或者修改）<br>例如<code>setAtrribute(&quot;a&quot;,&quot;b&quot;)</code>：<br>如果a对象之前不存在，则新建一个a对象；<br>如果a之前已经存在，则将a的值改为b<br><code>void removeAtrribute（String name）</code>:<br>根据属性名，删除对象</p>
+<h2 id="四个范围对象共有的方法"><a href="#四个范围对象共有的方法" class="headerlink" title="四个范围对象共有的方法"></a>四个范围对象共有的方法</h2><p><code>Object getAtrribute（String name）</code>:<br>根据属性名，或者属性值<br><br><br><code>void setAtrribute（String name，Object obj）</code>:<br>设置属性值（新增或者修改）<br>例如<code>setAtrribute(&quot;a&quot;,&quot;b&quot;)</code>：<br>如果a对象之前不存在，则新建一个a对象；<br>如果a之前已经存在，则将a的值改为b<br><br><br><code>void removeAtrribute（String name）</code>:<br>根据属性名，删除对象</p>
 <h2 id="有效范围"><a href="#有效范围" class="headerlink" title="有效范围"></a>有效范围</h2><ol>
 <li><strong>pageContext</strong>：当前页面有效（跳转后无效）</li>
 <li><strong>request</strong>：同一次请求有效；其他请求无效（请求转发后有效，重定向无效）</li>

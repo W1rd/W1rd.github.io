@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Learning is Life">
 <meta property="og:description" content="Statement与preaparedStatement">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-31T08:17:31.395Z">
+<meta property="og:updated_time" content="2020-05-31T08:25:08.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javaweb(6)-JDBC-2">
 <meta name="twitter:description" content="Statement与preaparedStatement">
@@ -173,10 +173,14 @@
       
         <h1 id="Statement与preaparedStatement"><a href="#Statement与preaparedStatement" class="headerlink" title="Statement与preaparedStatement"></a>Statement与preaparedStatement</h1><a id="more"></a>
 <h3 id="使用时的区别"><a href="#使用时的区别" class="headerlink" title="使用时的区别"></a>使用时的区别</h3><ol>
-<li>Statement<br>String sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)“;<br>stmt.excuteIUpdate(sql)<br><br></li>
-<li>preaparedStatement<br>sql(存在占位符’?’)<br>在创建preaparedStatement对象时，将sql预编译preaparedStatement(sql)<br>excuteUpdate（）<br>setXxxx（）替换占位符’?’</li>
+<li>Statement<br><code>String sql=”insert into student(stuno,stuname) values(&#39; &quot;+name+&quot;&#39;,&quot;+age+&quot;)“;
+stmt.excuteIUpdate(sql)</code><br><br></li>
+<li>preaparedStatement<br><code>sql(存在占位符&#39;?&#39;)
+在创建preaparedStatement对象时，将sql预编译preaparedStatement(sql)
+excuteUpdate（）
+setXxxx（）替换占位符&#39;?&#39;</code></li>
 </ol>
-<p>###推荐使用preaparedStatement<br><strong>1.编码更加方便(避免字符串的拼接)</strong><br>String name=”ab”;<br>int age =23;</p>
+<h3 id="推荐使用preaparedStatement"><a href="#推荐使用preaparedStatement" class="headerlink" title="推荐使用preaparedStatement"></a>推荐使用preaparedStatement</h3><p><strong>1.编码更加方便(避免字符串的拼接)</strong><br>String name=”ab”;<br>int age =23;</p>
 <p>stmt:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String sql=”insert into student(stuno,stuname) values(&apos; &quot;+name+&quot;&apos;,&quot;+age+&quot;)“;</span><br><span class="line">stmt.excuteUpdate();</span><br></pre></td></tr></table></figure>
 
@@ -184,10 +188,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String sql=&quot;insert into student(stuno,stuname) values(?,?)”;</span><br><span class="line">pstmt = connection.prepareStatement(sql)</span><br><span class="line">pstmt.setString(1,name);</span><br><span class="line">pstmt.setString(2,age);</span><br><span class="line">pstmt.excuteUpdate();</span><br></pre></td></tr></table></figure>
 
 <br>
-**2.提高性能**
+**2.提高性能**<br>
 preaparedStatement预编译了sql，预编译只执行一次
 <br>
 **3.安全**
+<br>
 * stmt:存在被sql注入的风险
 (例如输入 用户名:任意值' or 1=1 --
         密码：任意值)
@@ -324,7 +329,7 @@ preaparedStatement预编译了sql，预编译只执行一次
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Statement与preaparedStatement"><span class="toc-number">1.</span> <span class="toc-text">Statement与preaparedStatement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用时的区别"><span class="toc-number">1.0.1.</span> <span class="toc-text">使用时的区别</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Statement与preaparedStatement"><span class="toc-number">1.</span> <span class="toc-text">Statement与preaparedStatement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用时的区别"><span class="toc-number">1.0.1.</span> <span class="toc-text">使用时的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#推荐使用preaparedStatement"><span class="toc-number">1.0.2.</span> <span class="toc-text">推荐使用preaparedStatement</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
