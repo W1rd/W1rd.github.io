@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Javaweb(3)-response | Learning is Life</title>
+  <title>Javaweb(6)-JDBC-2 | Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Javaweb-response、cookie、session">
-<meta name="keywords" content="Javaweb">
+  <meta name="description" content="Statement与preaparedStatement">
+<meta name="keywords" content="Javaweb,JDBC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javaweb(3)-response">
-<meta property="og:url" content="http://yoursite.com/2020/05/19/javaweb3/index.html">
+<meta property="og:title" content="Javaweb(6)-JDBC-2">
+<meta property="og:url" content="http://yoursite.com/2020/05/27/javaweb6/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="Javaweb-response、cookie、session">
+<meta property="og:description" content="Statement与preaparedStatement">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2020/05/19/javaweb3/WechatIMG21.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/19/javaweb3/javaweb3//WechatIMG11.png">
-<meta property="og:updated_time" content="2020-05-31T08:14:13.299Z">
+<meta property="og:updated_time" content="2020-05-31T08:17:31.395Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javaweb(3)-response">
-<meta name="twitter:description" content="Javaweb-response、cookie、session">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/19/javaweb3/WechatIMG21.png">
+<meta name="twitter:title" content="Javaweb(6)-JDBC-2">
+<meta name="twitter:description" content="Statement与preaparedStatement">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -154,83 +151,54 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-javaweb3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-javaweb6" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Javaweb(3)-response
+      Javaweb(6)-JDBC-2
     </h1>
   
 
         
-        <a href="/2020/05/19/javaweb3/" class="archive-article-date">
-  	<time datetime="2020-05-19T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+        <a href="/2020/05/27/javaweb6/" class="archive-article-date">
+  	<time datetime="2020-05-27T02:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Javaweb-response、cookie、session"><a href="#Javaweb-response、cookie、session" class="headerlink" title="Javaweb-response、cookie、session"></a>Javaweb-response、cookie、session</h1><a id="more"></a>
-<h3 id="response-响应对象"><a href="#response-响应对象" class="headerlink" title="response:响应对象"></a>response:响应对象</h3><h5 id="提供的方法："><a href="#提供的方法：" class="headerlink" title="提供的方法："></a>提供的方法：</h5><ul>
-<li><p><code>void addCookie(Cookie cookie)</code>:<br>服务端向客户端增加cookie对象</p>
-</li>
-<li><p><code>void sendRedirect（Srting location）throws IOException</code>：重定向</p>
-</li>
-<li><p><code>void setContetType(String type)</code>:设置服务端的响应编码（设置服务端的contentype类型）</p>
-</li>
-</ul>
-<hr>
-<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><p>登录<br>login.jsp-&gt;check.jsp-&gt;success.jsp</p>
-<p><strong>重定向示意图：</strong><br><img src="/2020/05/19/javaweb3/WechatIMG21.png" alt><br><strong>请求转发示意图：</strong><br><img src="javaweb3//WechatIMG11.png" alt></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>请求转发</th>
-<th>重定向</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>地址栏是否改变</strong></td>
-<td>不变(check.jsp)</td>
-<td>改变(success.jsp)</td>
-</tr>
-<tr>
-<td><strong>是否保留第一次请求时的数据</strong></td>
-<td>保留</td>
-<td>不保留</td>
-</tr>
-<tr>
-<td><strong>请求的次数</strong></td>
-<td>1次</td>
-<td>2次</td>
-</tr>
-<tr>
-<td><strong>跳转发生的位置</strong></td>
-<td>服务端</td>
-<td>客户端发出第二次跳转</td>
-</tr>
-<tr>
-<td><br></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="转发、重定向："><a href="#转发、重定向：" class="headerlink" title="转发、重定向："></a>转发、重定向：</h2><h3 id="转发："><a href="#转发：" class="headerlink" title="转发："></a>转发：</h3><p>人A（客户端）-&gt;【服务窗口A（服务端）-&gt;服务窗口B（地址栏不变）】-&gt;人A（服务窗口B直接返回，一次跳转）</p>
-<h3 id="重定向："><a href="#重定向：" class="headerlink" title="重定向："></a>重定向：</h3><p>人A（客户端）-&gt;服务窗口A（服务端）-&gt;找服务窗口B<br>人A（客户端）-&gt;服务窗口B（服务端）-&gt;结束</p>
-<p>##session、Cookie</p>
+        <h1 id="Statement与preaparedStatement"><a href="#Statement与preaparedStatement" class="headerlink" title="Statement与preaparedStatement"></a>Statement与preaparedStatement</h1><a id="more"></a>
+<h3 id="使用时的区别"><a href="#使用时的区别" class="headerlink" title="使用时的区别"></a>使用时的区别</h3><ol>
+<li>Statement<br>String sql=”insert into student(stuno,stuname) values(‘ “+name+”‘,”+age+”)“;<br>stmt.excuteIUpdate(sql)<br><br></li>
+<li>preaparedStatement<br>sql(存在占位符’?’)<br>在创建preaparedStatement对象时，将sql预编译preaparedStatement(sql)<br>excuteUpdate（）<br>setXxxx（）替换占位符’?’</li>
+</ol>
+<p>###推荐使用preaparedStatement<br><strong>1.编码更加方便(避免字符串的拼接)</strong><br>String name=”ab”;<br>int age =23;</p>
+<p>stmt:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String sql=”insert into student(stuno,stuname) values(&apos; &quot;+name+&quot;&apos;,&quot;+age+&quot;)“;</span><br><span class="line">stmt.excuteUpdate();</span><br></pre></td></tr></table></figure>
+
+<p>pstmt:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String sql=&quot;insert into student(stuno,stuname) values(?,?)”;</span><br><span class="line">pstmt = connection.prepareStatement(sql)</span><br><span class="line">pstmt.setString(1,name);</span><br><span class="line">pstmt.setString(2,age);</span><br><span class="line">pstmt.excuteUpdate();</span><br></pre></td></tr></table></figure>
+
+<br>
+**2.提高性能**
+preaparedStatement预编译了sql，预编译只执行一次
+<br>
+**3.安全**
+* stmt:存在被sql注入的风险
+(例如输入 用户名:任意值' or 1=1 --
+        密码：任意值)
+分析:
+`select count(\*) from login where uname='任意值' or 1=1 --'and upwd='任意值';`
+将上个sql语句拼接转义成了
+`select count(*) from login`
+
 <ul>
-<li><strong>Cookie</strong>（客户端,不是内置对象）：Cookie是由服务端产生的，再次发送给客户端<br><br><br>1.相当于<strong>本地缓存</strong>的作用：客户端（x.mp4）-&gt;服务器端（x.mp4）[<strong>提高访问服务器端的效率，但是安全性较差</strong>]<br><br><br>2.<strong>name=value</strong><br><code>javax.servlet.http.Cookie</code> <code>public Cookie(String name,String value)</code><br><code>String getName()</code>:获取name<br><code>Srting getVlaue()</code>:获取value<br><code>void setMaxage（int expiry）</code>:设置cookie最大有效期 <br><br><br>3.获取和增加Cookie<br>服务端准备发送给客户端：<br><code>response.addCookie（Cookie cookie）</code><br>页面跳转（转发、重定向）<br>客户端获取cookie：<code>request.getCookies();//只能一次性全拿到cookie</code><br>服务端增加cookie：response对象<br>客户端获取对象：request对象 <br><br></li>
+<li>pstmt:有效的防止sql注入</li>
 </ul>
-<p>4.<strong>cookie补充说明</strong>：<br>a.cookie不是内置对象，使用必须new<br>b.但是，服务端会自动生成一个(服务端自动new一个cookie);<br>name=JESSIONID的cookie并返回客户端<br><br></p>
-<ul>
-<li><strong>session</strong> :会话<br>a.浏览网站：打开-关闭<br>b.购物：浏览、付款、退出<br>c.电子邮件:浏览、写邮件、退出<br>开始-结束<br><br></li>
-</ul>
-<p>1.session机制：<br>客户端<strong>第一次</strong>请求服务端时：<br>服务端会产生一个session对象（用于保存客户的信息）;<br>并且每个session对象 都会有一个唯一的sessionID（用于区分其他session）;<br>服务端会产生一个cookie，并且该cookie的name=JESESSIONID，value=服务端的sessionId；<br>然后服务端会在响应客户端的同时将该cookie发送给客户端，客户端就有了一个cookie（JSESSIONIND）;<br>因此，客户端的cookie就可以和服务端的session一一对应（JSESSIONID–sessionID）<br><br><br>客户端<strong>第n次</strong>请求服务端时：<br>服务端会先根据客户端cookie中的JESESSIONID去服务端的session中匹配sessionid，如果匹配成功(cookie JSESSIONID和session sessionid),说明此用户不是第一次访问（无需登录）；<br><br><br><br>2.session核心：<br>a.session储存在服务端<br>b.session是在同一个用户请求时共享<br>c.实现机制：第一次客户请求时 产生一个sessionid并复制给cookie的jsessionid然后发送给客户端，最终一一对应<br><br><br><br>3.session的方法：<br><br><code>String getID()</code>：获取sessionID<br><code>boolean isNew()</code>:判断是否是新用户<br><code>void invalidate()</code>:使session失效(退出登录、注销 )<br><code>void setAtrribute()</code><br><code>Object getAtrribute()</code><br><code>void setMaxInactiveInterval()</code>:设置最大有效 非活动时间<br><br></p>
 
       
 
@@ -245,6 +213,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javaweb</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
         		</li>
       		
 		</ul>
@@ -300,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/19/javaweb3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/27/javaweb6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +286,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/23/javaweb4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/28/javaweb7/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Javaweb(4)-四种范围对象
+          Javaweb(7)-JDBC-3
         
       </div>
     </a>
   
   
-    <a href="/2020/05/18/javaweb2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Javaweb(2)-request以及get、post请求</div>
+    <a href="/2020/05/24/javaweb5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javaweb(5)-JDBC-1</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -352,7 +324,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Javaweb-response、cookie、session"><span class="toc-number">1.</span> <span class="toc-text">Javaweb-response、cookie、session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#response-响应对象"><span class="toc-number">1.0.1.</span> <span class="toc-text">response:响应对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#提供的方法："><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">提供的方法：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例："><span class="toc-number">1.0.1.1.</span> <span class="toc-text">示例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转发、重定向："><span class="toc-number">1.1.</span> <span class="toc-text">转发、重定向：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转发："><span class="toc-number">1.1.1.</span> <span class="toc-text">转发：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重定向："><span class="toc-number">1.1.2.</span> <span class="toc-text">重定向：</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Statement与preaparedStatement"><span class="toc-number">1.</span> <span class="toc-text">Statement与preaparedStatement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用时的区别"><span class="toc-number">1.0.1.</span> <span class="toc-text">使用时的区别</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -366,7 +338,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="javaweb3" data-title="Javaweb(3)-response" data-url="http://yoursite.com/2020/05/19/javaweb3/"></div>
+	<div class="ds-thread" data-thread-key="javaweb6" data-title="Javaweb(6)-JDBC-2" data-url="http://yoursite.com/2020/05/27/javaweb6/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

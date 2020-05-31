@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Learning is Life</title>
+  <title>Javaweb(7)-JDBC-3 | Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: Javaweb(7)-JDBC-3date: 2020-05-28 10:35:25tags:    - Javaweb    - JDBC  #CallableStatement">
-<meta name="keywords" content="java，后端，算法，程序猿">
+  <meta name="description" content="CallableStatement">
+<meta name="keywords" content="Javaweb,JDBC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learning is Life">
+<meta property="og:title" content="Javaweb(7)-JDBC-3">
 <meta property="og:url" content="http://yoursite.com/2020/05/28/javaweb7/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="title: Javaweb(7)-JDBC-3date: 2020-05-28 10:35:25tags:    - Javaweb    - JDBC  #CallableStatement">
+<meta property="og:description" content="CallableStatement">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-31T07:54:39.711Z">
+<meta property="og:updated_time" content="2020-05-31T08:17:49.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learning is Life">
-<meta name="twitter:description" content="title: Javaweb(7)-JDBC-3date: 2020-05-28 10:35:25tags:    - Javaweb    - JDBC  #CallableStatement">
+<meta name="twitter:title" content="Javaweb(7)-JDBC-3">
+<meta name="twitter:description" content="CallableStatement">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -154,14 +154,25 @@
             <article id="post-javaweb7" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javaweb(7)-JDBC-3
+    </h1>
+  
+
+        
+        <a href="/2020/05/28/javaweb7/" class="archive-article-date">
+  	<time datetime="2020-05-28T02:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: Javaweb(7)-JDBC-3<br>date: 2020-05-28 10:35:25<br>tags:<br>    - Javaweb<br>    - JDBC</p>
-<hr>
-<p>#CallableStatement</p>
-<a id="more"></a>
-<p>###调用存储过程、存储信息<br>connection.prepareCall（参数：存储过程或存储函数名）<br>参数格式：</p>
+        <h1 id="CallableStatement"><a href="#CallableStatement" class="headerlink" title="CallableStatement"></a>CallableStatement</h1><a id="more"></a>
+<h3 id="调用存储过程、存储信息"><a href="#调用存储过程、存储信息" class="headerlink" title="调用存储过程、存储信息"></a>调用存储过程、存储信息</h3><p>connection.prepareCall（参数：存储过程或存储函数名）<br>参数格式：</p>
 <ul>
 <li><p><strong>存储过程（无返回值return，用Out参数代替）</strong>：<br>{call 存储过程名(参数列表)}<br><code>sql:create or replace procedure addNum(num in number,num2 in number,result out number)
 as
@@ -181,10 +192,8 @@ end;</code></p>
 
 </li>
 </ul>
-<p>##处理稍大型数据</p>
-<p>###存储路径<br>通过JDBC存储文件路径，然后根据IO操作处理<br>例如：JDBC将文件以字符串存储到数据库</p>
-<p>###CLOB/BLOB类型</p>
-<ul>
+<h2 id="处理稍大型数据"><a href="#处理稍大型数据" class="headerlink" title="处理稍大型数据"></a>处理稍大型数据</h2><h3 id="存储路径"><a href="#存储路径" class="headerlink" title="存储路径"></a>存储路径</h3><p>通过JDBC存储文件路径，然后根据IO操作处理<br>例如：JDBC将文件以字符串存储到数据库</p>
+<h3 id="CLOB-BLOB类型"><a href="#CLOB-BLOB类型" class="headerlink" title="CLOB/BLOB类型"></a>CLOB/BLOB类型</h3><ul>
 <li>CLOB：大文本数据（非文本类不行）<br>示例</li>
 </ul>
 <p>存小说：</p>
@@ -207,6 +216,21 @@ end;</code></p>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javaweb</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -275,14 +299,14 @@ end;</code></p>
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          Javaweb(8)-jsp连接数据库
         
       </div>
     </a>
   
   
-    <a href="/2020/05/28/javaweb6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2020/05/27/javaweb6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javaweb(6)-JDBC-2</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -309,7 +333,7 @@ end;</code></p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CallableStatement"><span class="toc-number">1.</span> <span class="toc-text">CallableStatement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调用存储过程、存储信息"><span class="toc-number">1.0.1.</span> <span class="toc-text">调用存储过程、存储信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理稍大型数据"><span class="toc-number">1.1.</span> <span class="toc-text">处理稍大型数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储路径"><span class="toc-number">1.1.1.</span> <span class="toc-text">存储路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CLOB-BLOB类型"><span class="toc-number">1.1.2.</span> <span class="toc-text">CLOB/BLOB类型</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -323,7 +347,7 @@ end;</code></p>
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="javaweb7" data-title="" data-url="http://yoursite.com/2020/05/28/javaweb7/"></div>
+	<div class="ds-thread" data-thread-key="javaweb7" data-title="Javaweb(7)-JDBC-3" data-url="http://yoursite.com/2020/05/28/javaweb7/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

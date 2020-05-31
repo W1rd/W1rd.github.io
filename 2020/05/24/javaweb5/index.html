@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Javaweb(3)-response | Learning is Life</title>
+  <title>Javaweb(5)-JDBC-1 | Learning is Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Javaweb-response、cookie、session">
-<meta name="keywords" content="Javaweb">
+  <meta name="description" content="JDBC">
+<meta name="keywords" content="Javaweb,JDBC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javaweb(3)-response">
-<meta property="og:url" content="http://yoursite.com/2020/05/19/javaweb3/index.html">
+<meta property="og:title" content="Javaweb(5)-JDBC-1">
+<meta property="og:url" content="http://yoursite.com/2020/05/24/javaweb5/index.html">
 <meta property="og:site_name" content="Learning is Life">
-<meta property="og:description" content="Javaweb-response、cookie、session">
+<meta property="og:description" content="JDBC">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2020/05/19/javaweb3/WechatIMG21.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/19/javaweb3/javaweb3//WechatIMG11.png">
-<meta property="og:updated_time" content="2020-05-31T08:14:13.299Z">
+<meta property="og:updated_time" content="2020-05-31T08:17:23.810Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javaweb(3)-response">
-<meta name="twitter:description" content="Javaweb-response、cookie、session">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/19/javaweb3/WechatIMG21.png">
+<meta name="twitter:title" content="Javaweb(5)-JDBC-1">
+<meta name="twitter:description" content="JDBC">
   
     <link rel="alternative" href="/atom.xml" title="Learning is Life" type="application/atom+xml">
   
@@ -154,83 +151,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-javaweb3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-javaweb5" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Javaweb(3)-response
+      Javaweb(5)-JDBC-1
     </h1>
   
 
         
-        <a href="/2020/05/19/javaweb3/" class="archive-article-date">
-  	<time datetime="2020-05-19T15:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+        <a href="/2020/05/24/javaweb5/" class="archive-article-date">
+  	<time datetime="2020-05-24T02:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Javaweb-response、cookie、session"><a href="#Javaweb-response、cookie、session" class="headerlink" title="Javaweb-response、cookie、session"></a>Javaweb-response、cookie、session</h1><a id="more"></a>
-<h3 id="response-响应对象"><a href="#response-响应对象" class="headerlink" title="response:响应对象"></a>response:响应对象</h3><h5 id="提供的方法："><a href="#提供的方法：" class="headerlink" title="提供的方法："></a>提供的方法：</h5><ul>
-<li><p><code>void addCookie(Cookie cookie)</code>:<br>服务端向客户端增加cookie对象</p>
-</li>
-<li><p><code>void sendRedirect（Srting location）throws IOException</code>：重定向</p>
-</li>
-<li><p><code>void setContetType(String type)</code>:设置服务端的响应编码（设置服务端的contentype类型）</p>
-</li>
-</ul>
-<hr>
-<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><p>登录<br>login.jsp-&gt;check.jsp-&gt;success.jsp</p>
-<p><strong>重定向示意图：</strong><br><img src="/2020/05/19/javaweb3/WechatIMG21.png" alt><br><strong>请求转发示意图：</strong><br><img src="javaweb3//WechatIMG11.png" alt></p>
-<table>
+        <h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><a id="more"></a>
+<p>Java Database Connectivity<br>可以为多种关系型数据库DBMS提供统一的访问方式,<br>用JAVA来操纵数据局</p>
+<p>##JDBC-API<br>DriverManager：管理jdbc驱动<br>Connection：连接<br>Statement（PreparedStatement）：增删改查<br>CallableStatement：调用数据库中的 存储过程/存储函数<br>Result：返回的结果集</p>
+<p>##JDBC访问数据库的具体步骤</p>
+<ol>
+<li>导入驱动，加载具体的驱动类</li>
+<li>与数据库建立连接</li>
+<li>发送sql，执行</li>
+<li>处理结果集（查询）</li>
+</ol>
+<h4 id="数据库驱动"><a href="#数据库驱动" class="headerlink" title="数据库驱动"></a>数据库驱动</h4><table>
 <thead>
 <tr>
-<th></th>
-<th>请求转发</th>
-<th>重定向</th>
+<th>数据库</th>
+<th>驱动jar</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>地址栏是否改变</strong></td>
-<td>不变(check.jsp)</td>
-<td>改变(success.jsp)</td>
+<td>Oracle</td>
+<td>ojdbc-x.jar</td>
 </tr>
 <tr>
-<td><strong>是否保留第一次请求时的数据</strong></td>
-<td>保留</td>
-<td>不保留</td>
+<td>MySQL</td>
+<td>Mysql-connector-java-x.jar</td>
 </tr>
 <tr>
-<td><strong>请求的次数</strong></td>
-<td>1次</td>
-<td>2次</td>
-</tr>
-<tr>
-<td><strong>跳转发生的位置</strong></td>
-<td>服务端</td>
-<td>客户端发出第二次跳转</td>
-</tr>
-<tr>
-<td><br></td>
-<td></td>
-<td></td>
+<td>SqlServer</td>
+<td>Sqljdbc-x.jar</td>
 </tr>
 </tbody></table>
-<h2 id="转发、重定向："><a href="#转发、重定向：" class="headerlink" title="转发、重定向："></a>转发、重定向：</h2><h3 id="转发："><a href="#转发：" class="headerlink" title="转发："></a>转发：</h3><p>人A（客户端）-&gt;【服务窗口A（服务端）-&gt;服务窗口B（地址栏不变）】-&gt;人A（服务窗口B直接返回，一次跳转）</p>
-<h3 id="重定向："><a href="#重定向：" class="headerlink" title="重定向："></a>重定向：</h3><p>人A（客户端）-&gt;服务窗口A（服务端）-&gt;找服务窗口B<br>人A（客户端）-&gt;服务窗口B（服务端）-&gt;结束</p>
-<p>##session、Cookie</p>
-<ul>
-<li><strong>Cookie</strong>（客户端,不是内置对象）：Cookie是由服务端产生的，再次发送给客户端<br><br><br>1.相当于<strong>本地缓存</strong>的作用：客户端（x.mp4）-&gt;服务器端（x.mp4）[<strong>提高访问服务器端的效率，但是安全性较差</strong>]<br><br><br>2.<strong>name=value</strong><br><code>javax.servlet.http.Cookie</code> <code>public Cookie(String name,String value)</code><br><code>String getName()</code>:获取name<br><code>Srting getVlaue()</code>:获取value<br><code>void setMaxage（int expiry）</code>:设置cookie最大有效期 <br><br><br>3.获取和增加Cookie<br>服务端准备发送给客户端：<br><code>response.addCookie（Cookie cookie）</code><br>页面跳转（转发、重定向）<br>客户端获取cookie：<code>request.getCookies();//只能一次性全拿到cookie</code><br>服务端增加cookie：response对象<br>客户端获取对象：request对象 <br><br></li>
-</ul>
-<p>4.<strong>cookie补充说明</strong>：<br>a.cookie不是内置对象，使用必须new<br>b.但是，服务端会自动生成一个(服务端自动new一个cookie);<br>name=JESSIONID的cookie并返回客户端<br><br></p>
-<ul>
-<li><strong>session</strong> :会话<br>a.浏览网站：打开-关闭<br>b.购物：浏览、付款、退出<br>c.电子邮件:浏览、写邮件、退出<br>开始-结束<br><br></li>
-</ul>
-<p>1.session机制：<br>客户端<strong>第一次</strong>请求服务端时：<br>服务端会产生一个session对象（用于保存客户的信息）;<br>并且每个session对象 都会有一个唯一的sessionID（用于区分其他session）;<br>服务端会产生一个cookie，并且该cookie的name=JESESSIONID，value=服务端的sessionId；<br>然后服务端会在响应客户端的同时将该cookie发送给客户端，客户端就有了一个cookie（JSESSIONIND）;<br>因此，客户端的cookie就可以和服务端的session一一对应（JSESSIONID–sessionID）<br><br><br>客户端<strong>第n次</strong>请求服务端时：<br>服务端会先根据客户端cookie中的JESESSIONID去服务端的session中匹配sessionid，如果匹配成功(cookie JSESSIONID和session sessionid),说明此用户不是第一次访问（无需登录）；<br><br><br><br>2.session核心：<br>a.session储存在服务端<br>b.session是在同一个用户请求时共享<br>c.实现机制：第一次客户请求时 产生一个sessionid并复制给cookie的jsessionid然后发送给客户端，最终一一对应<br><br><br><br>3.session的方法：<br><br><code>String getID()</code>：获取sessionID<br><code>boolean isNew()</code>:判断是否是新用户<br><code>void invalidate()</code>:使session失效(退出登录、注销 )<br><code>void setAtrribute()</code><br><code>Object getAtrribute()</code><br><code>void setMaxInactiveInterval()</code>:设置最大有效 非活动时间<br><br></p>
+<p>##JDBC模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">//1. 导入驱动包、加载具体驱动类</span><br><span class="line">Class.forNmae(&quot;具体驱动类&quot;)</span><br><span class="line">//2. 与数据库建立连接</span><br><span class="line">Connection connection = DriverManager.getConnection(...);</span><br><span class="line">//3. 通过connection，获取操作数据库的对象</span><br><span class="line">（Statement\prepareStatement\callablestatement）</span><br><span class="line">Statement stmt =connection.createStatement();</span><br><span class="line">//4. 处理结果集</span><br><span class="line">ResultSet res = stmst.executeQuery()</span><br><span class="line">while(res.next())&#123;res.getXxx(..);&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">catch(ClassNotFoundException e)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">catch(SQLException e)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">catch(Exception e)</span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">finally</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">try&#123;if(res!=null)res.close()</span><br><span class="line">...//关闭流，与打开顺序相反&#125;</span><br><span class="line">catch(..)&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//jdbc中，除了Class.forNname()抛出ClassNotFoundException其他都抛出</span><br><span class="line">SQLException；</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -245,6 +218,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Javaweb</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
         		</li>
       		
 		</ul>
@@ -300,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/19/javaweb3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/24/javaweb5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +291,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/23/javaweb4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/27/javaweb6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Javaweb(4)-四种范围对象
+          Javaweb(6)-JDBC-2
         
       </div>
     </a>
   
   
-    <a href="/2020/05/18/javaweb2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Javaweb(2)-request以及get、post请求</div>
+    <a href="/2020/05/23/javaweb4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javaweb(4)-四种范围对象</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -352,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Javaweb-response、cookie、session"><span class="toc-number">1.</span> <span class="toc-text">Javaweb-response、cookie、session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#response-响应对象"><span class="toc-number">1.0.1.</span> <span class="toc-text">response:响应对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#提供的方法："><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">提供的方法：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例："><span class="toc-number">1.0.1.1.</span> <span class="toc-text">示例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转发、重定向："><span class="toc-number">1.1.</span> <span class="toc-text">转发、重定向：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转发："><span class="toc-number">1.1.1.</span> <span class="toc-text">转发：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重定向："><span class="toc-number">1.1.2.</span> <span class="toc-text">重定向：</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDBC"><span class="toc-number">1.</span> <span class="toc-text">JDBC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库驱动"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">数据库驱动</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -366,7 +343,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="javaweb3" data-title="Javaweb(3)-response" data-url="http://yoursite.com/2020/05/19/javaweb3/"></div>
+	<div class="ds-thread" data-thread-key="javaweb5" data-title="Javaweb(5)-JDBC-1" data-url="http://yoursite.com/2020/05/24/javaweb5/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
